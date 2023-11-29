@@ -123,7 +123,7 @@ public class frmLogin extends javax.swing.JFrame {
         lblTitle.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(0, 0, 0));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Inicia sesion");
+        lblTitle.setText("Inicia sesión");
 
         lblUser.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lblUser.setForeground(new java.awt.Color(0, 0, 0));
@@ -194,11 +194,17 @@ public class frmLogin extends javax.swing.JFrame {
         btnLogin.setLayout(btnLoginLayout);
         btnLoginLayout.setHorizontalGroup(
             btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+            .addGroup(btnLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                .addContainerGap())
         );
         btnLoginLayout.setVerticalGroup(
             btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+            .addGroup(btnLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
@@ -209,7 +215,7 @@ public class frmLogin extends javax.swing.JFrame {
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE))
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -221,10 +227,10 @@ public class frmLogin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(separtorPass)
-                                    .addComponent(txtPass)
+                                    .addComponent(txtPass, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(separatorUser)
-                                    .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))))
-                        .addGap(0, 60, Short.MAX_VALUE)))
+                                    .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         loginPanelLayout.setVerticalGroup(
@@ -232,22 +238,21 @@ public class frmLogin extends javax.swing.JFrame {
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUser)
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(separatorUser, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(separatorUser, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPass)
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addComponent(separtorPass, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(26, 26, 26))
         );
 
         getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 440, 280));
@@ -256,16 +261,19 @@ public class frmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseEntered
+        //Cambiando color del boton de exit
         lblExit.setBackground(Color.red);
         lblExit.setForeground(new Color(242,242,242));
     }//GEN-LAST:event_lblExitMouseEntered
 
     private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
+        //Cambiando color del boton de exit
         lblExit.setBackground(new Color(242,242,242));
         lblExit.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_lblExitMouseExited
 
     private void lblExitMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseReleased
+        //Cerrar ventana
         if (evt.getButton() == MouseEvent.BUTTON1) {
             dispose();
             lblExit.setBackground(Color.red);
@@ -273,17 +281,20 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_lblExitMouseReleased
 
     private void headerPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerPanelMousePressed
+        //Calculando coordenadas del mouse
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_headerPanelMousePressed
 
     private void headerPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerPanelMouseDragged
+        //Cambiando posision a la ventana
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headerPanelMouseDragged
 
     private void txtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusGained
+        //focus en el usuario
         if(!userEnter){
             txtUser.setText("");
             txtUser.setForeground(new Color(0,0,0));
@@ -291,6 +302,7 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserFocusGained
 
     private void txtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusLost
+        //Perdiendo focus en el usuario
         if(txtUser.getText().isEmpty()){
             txtUser.setText("Ingrese su nombre de usuario");
             txtUser.setForeground(new Color(204,204,204));
@@ -301,6 +313,7 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserFocusLost
 
     private void txtPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusGained
+        //Focus en la contraseña
         if(!passEnter){
             txtPass.setText("");
             txtPass.setForeground(new Color(0,0,0));
@@ -308,6 +321,7 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPassFocusGained
 
     private void txtPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusLost
+        //Perdiendo focus en la contraseña
         if(txtPass.getText().isEmpty()){
             txtPass.setText("contraseña");
             txtPass.setForeground(new Color(204,204,204));
@@ -317,12 +331,13 @@ public class frmLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPassFocusLost
 
+    //Eventos del btnIngresar
     private void lblExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMousePressed
         lblExit.setBackground(new Color(204, 0, 0));
     }//GEN-LAST:event_lblExitMousePressed
 
     private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
-        btnLogin.setBackground(new Color(255, 236, 48));
+        btnLogin.setBackground(new Color(246, 255, 48));
     }//GEN-LAST:event_btnLoginMouseEntered
 
     private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
@@ -336,7 +351,6 @@ public class frmLogin extends javax.swing.JFrame {
     private void btnLoginMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseReleased
         btnLogin.setBackground(new Color(255, 223, 48));
     }//GEN-LAST:event_btnLoginMouseReleased
-
     /**
      * @param args the command line arguments
      */
