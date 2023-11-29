@@ -30,6 +30,7 @@ public arreglos a[] = new arreglos[tam];
         a[0] = new arreglos(12345,"Eduardo","123","cajero",false);
         a[1] = new arreglos(23456,"Machariel","234","cajero",false);
         a[2] = new arreglos(34567,"Jesus","456","cajero",false);
+       
                 
         initComponents();
         this.setLocationRelativeTo(null);
