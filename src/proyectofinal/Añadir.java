@@ -5,11 +5,16 @@
  */
 package proyectofinal;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author tikis
  */
 public class Añadir extends javax.swing.JInternalFrame {
+public Producto pro[] = new Producto[30];
+public int cant =0;
+
 
     /**
      * Creates new form Añadir
@@ -28,7 +33,7 @@ public class Añadir extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -36,12 +41,12 @@ public class Añadir extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         txtpre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtstok = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtfecha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -52,7 +57,7 @@ public class Añadir extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table);
 
         jLabel1.setText("Nombre del producto");
 
@@ -83,7 +88,7 @@ public class Añadir extends javax.swing.JInternalFrame {
                             .addComponent(txtid)
                             .addComponent(txtnom)
                             .addComponent(txtpre)
-                            .addComponent(jTextField1)
+                            .addComponent(txtstok)
                             .addComponent(txtfecha)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +127,7 @@ public class Añadir extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtstok, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -137,7 +142,30 @@ public class Añadir extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
+ if(!txtid.getText().isEmpty() && !txtnom.getText().isEmpty() && !txtpre.getText().isEmpty() && !txtstok.getText().isEmpty()){
+    pro[cant] = new Producto();
+   pro[cant].setId(Integer.valueOf(txtid.getText()));
+   pro[cant].setNombre(txtnom.getText());
+   pro[cant].setPrecio(Float.valueOf(txtpre.getText()));
+   pro[cant].setStock(Integer.valueOf(txtstok.getText()));
+   cant++;
+   DefaultTableModel modp = new DefaultTableModel();
+       String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
+       Object[] datosp = new Object[pro.length];
+       modp.setColumnIdentifiers(cabezap);
+       for(int i =0; i<cant;i++){
+           datosp [0] = pro[i].getId();
+           datosp [1] = pro[i].getNombre();
+           datosp [2] = pro[i].getPrecio();
+           datosp [3] = pro[i].getStock();
+           modp.addRow(datosp);
+       }
+       table.setModel(modp);
+     
+     
+ }else{
+     
+ }                  
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -150,11 +178,11 @@ public class Añadir extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable table;
     private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtnom;
     private javax.swing.JTextField txtpre;
+    private javax.swing.JTextField txtstok;
     // End of variables declaration//GEN-END:variables
 }
