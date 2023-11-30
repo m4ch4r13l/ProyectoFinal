@@ -41,11 +41,11 @@ public class FrmUsuario extends javax.swing.JFrame {
         DeskUsuario.setLayout(DeskUsuarioLayout);
         DeskUsuarioLayout.setHorizontalGroup(
             DeskUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 760, Short.MAX_VALUE)
         );
         DeskUsuarioLayout.setVerticalGroup(
             DeskUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Usuarios");
