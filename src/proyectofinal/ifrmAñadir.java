@@ -11,9 +11,9 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author tikis
  */
-public class Añadir extends javax.swing.JInternalFrame {
+public class ifrmAñadir extends javax.swing.JInternalFrame {
 public Producto product;
-Productos pros;
+frmProductos pros;
 
 
 
@@ -21,7 +21,7 @@ Productos pros;
     /**
      * Creates new form Añadir
      */
-    public Añadir(Productos pro, Producto prod) {
+    public ifrmAñadir(frmProductos pro, Producto prod) {
         initComponents();
         DefaultTableModel modp = new DefaultTableModel();
        String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
