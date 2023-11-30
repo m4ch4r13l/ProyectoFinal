@@ -6,13 +6,16 @@ package proyectofinal;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author macha
  */
 public class frmLogin extends javax.swing.JFrame {
-
+private int tam = 20;
+private int cantUser = 3;
+public Arreglos a[] = new Arreglos[tam];
     /**
      * Creates new form frmLogin
      */
@@ -21,6 +24,14 @@ public class frmLogin extends javax.swing.JFrame {
     boolean userEnter = false, passEnter = false;
     
     public frmLogin() {
+        for(int i = 0; i<tam;i++){
+            a[i] = new Arreglos();
+        }
+        a[0] = new Arreglos(12345,"Eduardo","123","cajero",false);
+        a[1] = new Arreglos(23456,"Machariel","234","cajero",false);
+        a[2] = new Arreglos(34567,"Jesus","456","cajero",false);
+       
+                
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -49,7 +60,7 @@ public class frmLogin extends javax.swing.JFrame {
         separatorUser = new javax.swing.JSeparator();
         separtorPass = new javax.swing.JSeparator();
         btnLogin = new javax.swing.JPanel();
-        lblLogin = new javax.swing.JLabel();
+        lblIngresar = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -71,7 +82,6 @@ public class frmLogin extends javax.swing.JFrame {
 
         lblExit.setBackground(new java.awt.Color(242, 242, 242));
         lblExit.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        lblExit.setForeground(new java.awt.Color(0, 0, 0));
         lblExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblExit.setText("X");
         lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -121,17 +131,14 @@ public class frmLogin extends javax.swing.JFrame {
         loginPanel.setForeground(new java.awt.Color(242, 242, 242));
 
         lblTitle.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(0, 0, 0));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Inicia sesión");
 
         lblUser.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        lblUser.setForeground(new java.awt.Color(0, 0, 0));
         lblUser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblUser.setText("Usuario:");
 
         lblPass.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        lblPass.setForeground(new java.awt.Color(0, 0, 0));
         lblPass.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPass.setText("Contraseña:");
 
@@ -185,10 +192,10 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        lblLogin.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
-        lblLogin.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogin.setText("INGRESAR");
+        lblIngresar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        lblIngresar.setForeground(new java.awt.Color(242, 242, 242));
+        lblIngresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIngresar.setText("Ingresar");
 
         javax.swing.GroupLayout btnLoginLayout = new javax.swing.GroupLayout(btnLogin);
         btnLogin.setLayout(btnLoginLayout);
@@ -196,14 +203,14 @@ public class frmLogin extends javax.swing.JFrame {
             btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnLoginLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                .addComponent(lblIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                 .addContainerGap())
         );
         btnLoginLayout.setVerticalGroup(
             btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnLoginLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addComponent(lblIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -350,7 +357,31 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnLoginMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseReleased
         btnLogin.setBackground(new Color(255, 223, 48));
+        
     }//GEN-LAST:event_btnLoginMouseReleased
+
+    
+    public void Login(){
+        String us = txtUser.getText();
+        String con = txtPass.getText();
+        boolean ac = false;
+
+        for(int i=0; i<cantUser;i++){        
+            if(a[i].getNombre().equals(us) && a[i].getContrasena().equals(con)){
+                frmMain f = new frmMain();
+                f.setVisible(true);
+                //this.setVisible(false);
+                dispose();
+                ac = true;  
+            }
+        }
+        if(!ac){
+            JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "Advertencia", JOptionPane.WARNING_MESSAGE);    
+            txtUser.setText("");
+            txtPass.setText("");
+            txtUser.requestFocus();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -394,7 +425,7 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblIcon;
-    private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblIngresar;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUser;
