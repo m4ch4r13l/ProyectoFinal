@@ -155,6 +155,11 @@ public Usuario a[] = new Usuario[tam];
                 txtUserFocusLost(evt);
             }
         });
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserActionPerformed(evt);
+            }
+        });
 
         txtPass.setBackground(new java.awt.Color(242, 242, 242));
         txtPass.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -167,6 +172,11 @@ public Usuario a[] = new Usuario[tam];
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtPassFocusLost(evt);
+            }
+        });
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassActionPerformed(evt);
             }
         });
 
@@ -357,8 +367,16 @@ public Usuario a[] = new Usuario[tam];
 
     private void btnLoginMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseReleased
         btnLogin.setBackground(new Color(255, 223, 48));
-        
+        Login();
     }//GEN-LAST:event_btnLoginMouseReleased
+
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+        Login();
+    }//GEN-LAST:event_txtUserActionPerformed
+
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        Login();
+    }//GEN-LAST:event_txtPassActionPerformed
 
     
     public void Login(){
@@ -382,6 +400,7 @@ public Usuario a[] = new Usuario[tam];
             txtUser.requestFocus();
         }
     }
+    
     /**
      * @param args the command line arguments
      */
