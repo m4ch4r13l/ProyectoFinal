@@ -20,7 +20,6 @@ public class frmMain extends javax.swing.JFrame {
     
     public frmMain() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
