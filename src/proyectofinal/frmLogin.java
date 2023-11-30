@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class frmLogin extends javax.swing.JFrame {
 private int tam = 20;
 private int cantUser = 3;
-public Arreglos a[] = new Arreglos[tam];
+public Usuario a[] = new Usuario[tam];
     /**
      * Creates new form frmLogin
      */
@@ -25,11 +25,11 @@ public Arreglos a[] = new Arreglos[tam];
     
     public frmLogin() {
         for(int i = 0; i<tam;i++){
-            a[i] = new Arreglos();
+            a[i] = new Usuario();
         }
-        a[0] = new Arreglos(12345,"Eduardo","123","cajero",false);
-        a[1] = new Arreglos(23456,"Machariel","234","cajero",false);
-        a[2] = new Arreglos(34567,"Jesus","456","cajero",false);
+        a[0] = new Usuario(12345,"Eduardo","123","cajero",false);
+        a[1] = new Usuario(23456,"Machariel","234","cajero",false);
+        a[2] = new Usuario(34567,"Jesus","456","cajero",false);
        
                 
         initComponents();

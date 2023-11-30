@@ -9,7 +9,7 @@ package proyectofinal;
  *
  * @author tikis
  */
-public class Arreglos {
+public class Usuario {
     int registro;
     String nombre;
     String contrasena;
@@ -17,7 +17,7 @@ public class Arreglos {
     public int cant = 0;
     boolean disponible;
 
-    public Arreglos(int registro, String nombre, String contrasena, String nivel, boolean disponible) {
+    public Usuario(int registro, String nombre, String contrasena, String nivel, boolean disponible) {
         this.registro = registro;
         this.nombre = nombre;
         this.contrasena = contrasena;
@@ -30,7 +30,7 @@ public class Arreglos {
         return cant;
     }
 
-    public Arreglos() {
+    public Usuario() {
     }
 
     public int getRegistro() {
