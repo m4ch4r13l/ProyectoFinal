@@ -16,6 +16,7 @@ public class Producto {
     String nombre;
     float precio;
     int stock;
+    
 
     public Producto(int id, String nombre, float precio, int stock) {
         this.id = id;
