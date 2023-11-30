@@ -10,7 +10,7 @@ package proyectofinal;
  * @author tikis
  */
 public class Productos extends javax.swing.JFrame {
-
+Producto po = new Producto();
     /**
      * Creates new form Productos
      */
@@ -69,6 +69,11 @@ public class Productos extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Mas producto");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -131,10 +136,15 @@ public class Productos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
- Añadir v1 = new Añadir();
+ Añadir v1 = new Añadir(this,po);
         d.add(v1);
-        v1.show();       
+        v1.show();   
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -12,26 +12,33 @@ import javax.swing.table.DefaultTableModel;
  * @author tikis
  */
 public class Añadir extends javax.swing.JInternalFrame {
-public Producto pro[] = new Producto[30];
-public int cant = 0;
+public Producto product;
+Productos pros;
+
+
 
 
     /**
      * Creates new form Añadir
      */
-    public Añadir() {
+    public Añadir(Productos pro, Producto prod) {
         initComponents();
         DefaultTableModel modp = new DefaultTableModel();
        String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
-        Object[] datosp = new Object[pro.length];
-       modp.setColumnIdentifiers(cabezap);
-       for(int i =0; i<cant;i++){
-           datosp [0] = pro[i].getId();
-           datosp [1] = pro[i].getNombre();
-           datosp [2] = pro[i].getPrecio();
-           datosp [3] = pro[i].getStock();
-           modp.addRow(datosp);
-       }
+      product = prod;
+      modp.setColumnIdentifiers(cabezap);
+      if(product.cant !=0){
+       Object[] datosp = new Object[product.pro.length];
+       for(int i =0; i<product.cant;i++){
+           datosp [0] = product.pro[i].getId();
+           datosp [1] = product.pro[i].getNombre();
+           datosp [2] = product.pro[i].getPrecio();
+           datosp [3] = product.pro[i].getStock();
+           modp.addRow(datosp);   
+      } 
+      
+       } 
+       
        table.setModel(modp);
         
     }
@@ -167,21 +174,16 @@ public int cant = 0;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  if(!txtid.getText().isEmpty() && !txtnom.getText().isEmpty() && !txtpre.getText().isEmpty() && !txtstok.getText().isEmpty()){
-    pro[cant] = new Producto();
-   pro[cant].setId(Integer.valueOf(txtid.getText()));
-   pro[cant].setNombre(txtnom.getText());
-   pro[cant].setPrecio(Float.valueOf(txtpre.getText()));
-   pro[cant].setStock(Integer.valueOf(txtstok.getText()));
-   cant++;
+    product.add(Integer.valueOf(txtid.getText()), txtnom.getText(), Float.valueOf(txtpre.getText()), Integer.valueOf(txtstok.getText()));
    DefaultTableModel modp = new DefaultTableModel();
        String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
-       Object[] datosp = new Object[pro.length];
+       Object[] datosp = new Object[product.pro.length];
        modp.setColumnIdentifiers(cabezap);
-       for(int i =0; i<cant;i++){
-           datosp [0] = pro[i].getId();
-           datosp [1] = pro[i].getNombre();
-           datosp [2] = pro[i].getPrecio();
-           datosp [3] = pro[i].getStock();
+       for(int i =0; i<product.cant;i++){
+           datosp [0] = product.pro[i].getId();
+           datosp [1] = product.pro[i].getNombre();
+           datosp [2] = product.pro[i].getPrecio();
+           datosp [3] = product.pro[i].getStock();
            modp.addRow(datosp);
        }
        table.setModel(modp);

@@ -12,11 +12,12 @@ import java.util.Date;
  * @author tikis
  */
 public class Producto {
+    public Producto pro[] = new Producto[30];
     int id;
     String nombre;
     float precio;
     int stock;
-
+public int cant =0;
     public Producto(int id, String nombre, float precio, int stock) {
         this.id = id;
         this.nombre = nombre;
@@ -59,6 +60,15 @@ public class Producto {
         this.stock = stock;
     }
     
+public void add(int ID, String nom, float pre, int stok){
+pro[cant] = new Producto(0,null,0,0);
 
+   pro[cant].setId(ID);
+   pro[cant].setNombre(nom);
+   pro[cant].setPrecio(pre);
+   pro[cant].setStock(stok);
+   cant++;
+    
+}
    
 }
