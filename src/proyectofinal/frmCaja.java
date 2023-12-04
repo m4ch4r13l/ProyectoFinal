@@ -18,9 +18,13 @@ public class frmCaja extends javax.swing.JFrame {
      * Creates new form frmCaja
      */
     int xMouse, yMouse;
-    String producto[];
+    String productoNombre[];
     int cant[];
     float precio[];
+    
+    //datos del Main
+    frmMain main;
+    Producto product;
     
     public frmCaja() {
         initComponents();
@@ -33,9 +37,31 @@ public class frmCaja extends javax.swing.JFrame {
         Object[] datos = new Object[3];
         
         for (int i = 0; i < 2; i++) {
-            datos[0] = producto[i];
-            datos[1] = cant[i];
-            datos[2] = precio[i];
+            datos [0] = product.pro[i].getNombre();
+            datos [1] = null;
+            datos [2] = product.pro[i].getPrecio();
+            modelo.addRow(datos);
+        }
+        tblPedido.setModel(modelo);
+    }
+    
+    public frmCaja(frmMain main, Producto product) {
+        this.main = main;
+        this.product = product;
+        
+        initComponents();
+        this.setLocationRelativeTo(null);
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+        String[] cabecera = {"Producto", "Cantidad", "Precio"};
+        modelo.setColumnIdentifiers(cabecera);
+        
+        Object[] datos = new Object[3];
+        
+        for (int i = 0; i < product.cant; i++) {
+            datos [0] = product.pro[i].getNombre();
+            datos [1] = null;
+            datos [2] = product.pro[i].getPrecio();
             modelo.addRow(datos);
         }
         tblPedido.setModel(modelo);
@@ -243,6 +269,7 @@ public class frmCaja extends javax.swing.JFrame {
     private void lblExitMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseReleased
         if (evt.getButton() == MouseEvent.BUTTON1) {
             dispose();
+            main.dispose();
             lblExit.setBackground(Color.red);
         }
     }//GEN-LAST:event_lblExitMouseReleased

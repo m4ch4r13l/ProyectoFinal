@@ -22,6 +22,7 @@ public class frmMain extends javax.swing.JFrame {
     public frmMain() {
         initComponents();
         this.setLocationRelativeTo(null);
+        po.cargarProductos();
     }
 
     /**
@@ -439,6 +440,10 @@ public class frmMain extends javax.swing.JFrame {
 
     private void btnCajaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseReleased
         btnCaja.setBackground(new Color(255, 223, 48));
+        
+        frmCaja cajaWin = new frmCaja(this, po);
+        cajaWin.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnCajaMouseReleased
 
     private void btnUsersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsersMouseEntered
@@ -492,7 +497,7 @@ public class frmMain extends javax.swing.JFrame {
         btnExit.setBackground(new Color(255, 223, 48));
         dispose();
     }//GEN-LAST:event_btnExitMouseReleased
-
+    
     public static void main(String args[]) {
             /* Set the Nimbus look and feel */
             //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
