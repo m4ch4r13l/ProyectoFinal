@@ -13,15 +13,15 @@ public class Usuario {
     int registro;
     String nombre;
     String contrasena;
-    String nivel;
     public int cant = 0;
     boolean disponible;
+    boolean admin;
 
-    public Usuario(int registro, String nombre, String contrasena, String nivel, boolean disponible) {
+    public Usuario(int registro, String nombre, String contrasena, boolean admin, boolean disponible) {
         this.registro = registro;
         this.nombre = nombre;
         this.contrasena = contrasena;
-        this.nivel = nivel;
+        this.admin= admin;
         this.disponible = disponible;
         this.cant++;
     }
@@ -57,12 +57,12 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public String getNivel() {
-        return nivel;
+    public boolean getAdmin() {
+        return admin;
     }
 
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
+    public void setaAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     public boolean isDisponible() {
