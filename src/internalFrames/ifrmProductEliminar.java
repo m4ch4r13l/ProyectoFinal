@@ -118,47 +118,44 @@ public Producto product;
 
     private void bnteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnteliminarActionPerformed
         int idm = Integer.parseInt(txtID.getText());  
-        int cant=0;
         int band = 0;
         DefaultTableModel modp = new DefaultTableModel();
-       String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
-       int val = JOptionPane.showConfirmDialog(this,"Quierere eliminar este producto");
-        for(int i=0; i < product.cant;i++){
-            
-        if(product.pro[i].getId() == idm){
-          band = 1;
-      
-        for(int x = i; x < product.cant-1;x++){
-         
-            product.pro[x].setId(product.pro[x+1].getId());
-            product.pro[x].setNombre(product.pro[x+1].getNombre());
-            product.pro[x].setPrecio(product.pro[x+1].getPrecio());
-            product.pro[x].setStock(product.pro[x+1].getStock());
+        String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
+        int val = JOptionPane.showConfirmDialog(this,"Quierere eliminar este producto");
+        if (val== JOptionPane.YES_OPTION) {
+            for(int i=0; i < product.cant;i++){
+                if(product.pro[i].getId() == idm){
+                    band = 1;
+                    for(int x = i; x < product.cant-1;x++){
+                        product.pro[x].setId(product.pro[x+1].getId());
+                        product.pro[x].setNombre(product.pro[x+1].getNombre());
+                        product.pro[x].setPrecio(product.pro[x+1].getPrecio());
+                        product.pro[x].setStock(product.pro[x+1].getStock());
+                    }
+                    product.cant--; 
+
+                    modp.setColumnIdentifiers(cabezap);
+                    if(product.cant !=0){
+                        Object[] datosp = new Object[product.pro.length];
+                        for(int x=0; x<product.cant;x++){
+                            datosp [0] = product.pro[x].getId();
+                            datosp [1] = product.pro[x].getNombre();
+                            datosp [2] = product.pro[x].getPrecio();
+                            datosp [3] = product.pro[x].getStock();
+                            modp.addRow(datosp);   
+                        } 
+                    } 
+                    table.setModel(modp);
+                }
+            }
+            if(band ==1){
+            }else{
+                JOptionPane.showMessageDialog(this, "ID no encontrada", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "se cancelo el proceso.", "Proceso cancelado", JOptionPane.INFORMATION_MESSAGE);
         }
-        product.cant--; 
-         
-       modp.setColumnIdentifiers(cabezap);
-      if(product.cant !=0){
-       Object[] datosp = new Object[product.pro.length];
-       for(int x=0; x<product.cant;x++){
-           datosp [0] = product.pro[x].getId();
-           datosp [1] = product.pro[x].getNombre();
-           datosp [2] = product.pro[x].getPrecio();
-           datosp [3] = product.pro[x].getStock();
-           modp.addRow(datosp);   
-      } 
-      
-       } 
-       
-       table.setModel(modp);
-       
-        }
-        }
-        if(band ==1){
-            
-        }else{
-            JOptionPane.showMessageDialog(this, "ID no encontrada", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }   
+           
     }//GEN-LAST:event_bnteliminarActionPerformed
 
 

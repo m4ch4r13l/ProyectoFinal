@@ -21,24 +21,21 @@ frmProductos pros;
      */
     public ifrmProductConsulta(frmProductos pro, Producto prod) {
         initComponents();
-DefaultTableModel modp = new DefaultTableModel();
-       String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
-      product = prod;
-      modp.setColumnIdentifiers(cabezap);
-      if(product.cant !=0){
-       Object[] datosp = new Object[product.pro.length];
-       for(int i =0; i<product.cant;i++){
-           datosp [0] = product.pro[i].getId();
-           datosp [1] = product.pro[i].getNombre();
-           datosp [2] = product.pro[i].getPrecio();
-           datosp [3] = product.pro[i].getStock();
-           modp.addRow(datosp);   
-      } 
-      
-       } 
-       
-       table.setModel(modp);
-        
+        DefaultTableModel modp = new DefaultTableModel();
+        String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
+        product = prod;
+        modp.setColumnIdentifiers(cabezap);
+        if(product.cant !=0){
+            Object[] datosp = new Object[product.pro.length];
+            for(int i =0; i<product.cant;i++){
+                datosp [0] = product.pro[i].getId();
+                datosp [1] = product.pro[i].getNombre();
+                datosp [2] = product.pro[i].getPrecio();
+                datosp [3] = product.pro[i].getStock();
+                modp.addRow(datosp);   
+            } 
+        } 
+        table.setModel(modp);
     }
 
     /**

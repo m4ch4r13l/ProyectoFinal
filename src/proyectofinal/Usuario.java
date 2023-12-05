@@ -88,4 +88,27 @@ public class Usuario {
         add(idUsers+1,"Jesus","456",false,true);
     }
     
+    public void deleteUser(int registro) {
+        System.out.println("ENTRO A LA FUNCOIN");
+        for (int i = 0; i < users.length; i++) {
+            System.out.println("idUser: " + i);
+            if (users[i] != null && users[i].getRegistro() == registro) {
+                System.out.println("ENTRO AL IF");
+                users[i] = null;
+                Usuario[] newUsers = new Usuario[users.length - 1];
+
+                for (int j = 0, k = 0; j < users.length; j++) {
+                    System.out.println("ENTRO AL FOR 2");
+                    if (users[j] != null) {
+                        newUsers[k++] = users[j];
+                    }
+                }
+
+                users = newUsers; // asigna el nuevo arreglo al arreglo original
+                idUsers--;
+                break;
+            }
+        }
+    }
+    
 }

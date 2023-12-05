@@ -1,6 +1,7 @@
 package proyectofinal;
 
 import internalFrames.ifrmUsuarioAdd;
+import internalFrames.ifrmUsuarioDel;
 import internalFrames.ifrmUsuarioMod;
 
 
@@ -40,8 +41,9 @@ public class frmUsuario extends javax.swing.JFrame {
         DeskUsuario = new javax.swing.JDesktopPane();
         MnuUsuarios = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        MniUsuariosAdd = new javax.swing.JMenuItem();
-        MniUsuariosMod = new javax.swing.JMenuItem();
+        mniUserAdd = new javax.swing.JMenuItem();
+        mniUserMod = new javax.swing.JMenuItem();
+        mniUserDel = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         MniRegresar = new javax.swing.JMenuItem();
 
@@ -60,21 +62,29 @@ public class frmUsuario extends javax.swing.JFrame {
 
         jMenu1.setText("Usuarios");
 
-        MniUsuariosAdd.setText("Agregar Usuario");
-        MniUsuariosAdd.addActionListener(new java.awt.event.ActionListener() {
+        mniUserAdd.setText("Agregar Usuario");
+        mniUserAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MniUsuariosAddActionPerformed(evt);
+                mniUserAddActionPerformed(evt);
             }
         });
-        jMenu1.add(MniUsuariosAdd);
+        jMenu1.add(mniUserAdd);
 
-        MniUsuariosMod.setText("Modificar Usuario");
-        MniUsuariosMod.addActionListener(new java.awt.event.ActionListener() {
+        mniUserMod.setText("Modificar Usuario");
+        mniUserMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MniUsuariosModActionPerformed(evt);
+                mniUserModActionPerformed(evt);
             }
         });
-        jMenu1.add(MniUsuariosMod);
+        jMenu1.add(mniUserMod);
+
+        mniUserDel.setText("Eliminar Usuario");
+        mniUserDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniUserDelActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mniUserDel);
 
         MnuUsuarios.add(jMenu1);
 
@@ -106,22 +116,28 @@ public class frmUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MniUsuariosAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MniUsuariosAddActionPerformed
-        ifrmUsuarioAdd AddVentana = new ifrmUsuarioAdd(this, userList);
-        this.DeskUsuario.add(AddVentana);
-        AddVentana.show();
-    }//GEN-LAST:event_MniUsuariosAddActionPerformed
+    private void mniUserAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniUserAddActionPerformed
+        ifrmUsuarioAdd addVentana = new ifrmUsuarioAdd(this, userList);
+        this.DeskUsuario.add(addVentana);
+        addVentana.show();
+    }//GEN-LAST:event_mniUserAddActionPerformed
 
     private void MniRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MniRegresarActionPerformed
         main.setVisible(true);
         dispose();   
     }//GEN-LAST:event_MniRegresarActionPerformed
 
-    private void MniUsuariosModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MniUsuariosModActionPerformed
-        ifrmUsuarioMod ModVentana = new ifrmUsuarioMod(this, userList);
-        this.DeskUsuario.add(ModVentana);
-        ModVentana.show();
-    }//GEN-LAST:event_MniUsuariosModActionPerformed
+    private void mniUserModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniUserModActionPerformed
+        ifrmUsuarioMod modVentana = new ifrmUsuarioMod(this, userList);
+        this.DeskUsuario.add(modVentana);
+        modVentana.show();
+    }//GEN-LAST:event_mniUserModActionPerformed
+
+    private void mniUserDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniUserDelActionPerformed
+        ifrmUsuarioDel delVentana = new ifrmUsuarioDel(this, userList);
+        this.DeskUsuario.add(delVentana);
+        delVentana.show();
+    }//GEN-LAST:event_mniUserDelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,10 +192,11 @@ public class frmUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane DeskUsuario;
     private javax.swing.JMenuItem MniRegresar;
-    private javax.swing.JMenuItem MniUsuariosAdd;
-    private javax.swing.JMenuItem MniUsuariosMod;
     private javax.swing.JMenuBar MnuUsuarios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem mniUserAdd;
+    private javax.swing.JMenuItem mniUserDel;
+    private javax.swing.JMenuItem mniUserMod;
     // End of variables declaration//GEN-END:variables
 }

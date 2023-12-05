@@ -160,14 +160,19 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
                 admin = true;
             }
             userList.add(registro + 1, nombre, pass, admin, true);
-            JOptionPane.showMessageDialog(this, "Usuario "+userList.users[registro].getNombre()+"Registrado con exito.", "Registrado", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Usuario "+userList.users[registro].getNombre()+" Registrado con exito.", "Registrado", JOptionPane.INFORMATION_MESSAGE);
+            clear();
         } else {
             JOptionPane.showMessageDialog(this, "Ingrese todos los datos.", "ERROR", JOptionPane.ERROR_MESSAGE);
             txtUsuario.requestFocus();
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-
+    public void clear(){
+        txtPass.setText("");
+        txtUsuario.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.ButtonGroup btnGrupNivel;

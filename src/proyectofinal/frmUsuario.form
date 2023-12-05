@@ -9,20 +9,28 @@
             <Property name="text" type="java.lang.String" value="Usuarios"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="MniUsuariosAdd">
+            <MenuItem class="javax.swing.JMenuItem" name="mniUserAdd">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar Usuario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MniUsuariosAddActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniUserAddActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="MniUsuariosMod">
+            <MenuItem class="javax.swing.JMenuItem" name="mniUserMod">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar Usuario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MniUsuariosModActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniUserModActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mniUserDel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar Usuario"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniUserDelActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

@@ -26,6 +26,7 @@ public class frmMain extends javax.swing.JFrame {
     public frmMain() {
         initComponents();
         this.setLocationRelativeTo(null);
+        productList.cargarProductos();
     }
     
     public frmMain(frmLogin loginVentana, Usuario usersList, int actUser) {
@@ -35,6 +36,7 @@ public class frmMain extends javax.swing.JFrame {
         this.usersList = usersList;
         this.actUser = actUser-1;
         lblTitle.setText("Bienvenido: " + usersList.users[this.actUser].getNombre());
+        productList.cargarProductos();
     }
 
     /**
@@ -349,7 +351,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnProduct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -442,6 +444,10 @@ public class frmMain extends javax.swing.JFrame {
 
     private void btnCajaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseReleased
         btnCaja.setBackground(new Color(255, 223, 48));
+        
+        frmCaja cajaWin = new frmCaja(this, productList);
+        cajaWin.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnCajaMouseReleased
 
     private void btnUsersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsersMouseEntered
@@ -508,7 +514,7 @@ public class frmMain extends javax.swing.JFrame {
         btnExit.setBackground(new Color(255, 223, 48));
         dispose();
     }//GEN-LAST:event_btnExitMouseReleased
-
+    
     public static void main(String args[]) {
             /* Set the Nimbus look and feel */
             //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
