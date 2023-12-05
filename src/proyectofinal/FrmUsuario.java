@@ -13,11 +13,14 @@ package proyectofinal;
  */
 public class FrmUsuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmUsuario
-     */
+    
+    frmMain main;
     public FrmUsuario() {
         initComponents();
+    }
+    public FrmUsuario(frmMain main) {
+        initComponents();
+        this.main = main;
     }
 
     /**
@@ -61,6 +64,11 @@ public class FrmUsuario extends javax.swing.JFrame {
         jMenu1.add(MniUsuariosAdd);
 
         MniUsuariosMod.setText("Modificar Usuario");
+        MniUsuariosMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MniUsuariosModActionPerformed(evt);
+            }
+        });
         jMenu1.add(MniUsuariosMod);
 
         MnuUsuarios.add(jMenu1);
@@ -68,6 +76,11 @@ public class FrmUsuario extends javax.swing.JFrame {
         jMenu2.setText("Navegar");
 
         MniRegresar.setText("Regresar");
+        MniRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MniRegresarActionPerformed(evt);
+            }
+        });
         jMenu2.add(MniRegresar);
 
         MnuUsuarios.add(jMenu2);
@@ -89,8 +102,21 @@ public class FrmUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MniUsuariosAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MniUsuariosAddActionPerformed
-        // TODO add your handling code here:
+        ifrmUsuarioAdd AddVentana = new ifrmUsuarioAdd(this);
+        this.DeskUsuario.add(AddVentana);
+        AddVentana.show();
     }//GEN-LAST:event_MniUsuariosAddActionPerformed
+
+    private void MniRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MniRegresarActionPerformed
+        main.setVisible(true);
+        dispose();   
+    }//GEN-LAST:event_MniRegresarActionPerformed
+
+    private void MniUsuariosModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MniUsuariosModActionPerformed
+        ifrmUsuarioMod ModVentana = new ifrmUsuarioMod(this);
+        this.DeskUsuario.add(ModVentana);
+        ModVentana.show();
+    }//GEN-LAST:event_MniUsuariosModActionPerformed
 
     /**
      * @param args the command line arguments

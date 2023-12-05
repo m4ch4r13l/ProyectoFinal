@@ -16,7 +16,7 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
     /**
      * Creates new form ifrmUsuarioAdd
      */
-    public ifrmUsuarioAdd() {
+    public ifrmUsuarioAdd(FrmUsuario usuarioVentana) {
         initComponents();
     }
 
@@ -38,6 +38,8 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
         rbtCajero = new javax.swing.JRadioButton();
         rbtAdmin = new javax.swing.JRadioButton();
 
+        setClosable(true);
+
         lblTitle.setText("Usuarios");
 
         lblNombre.setText("Nombre de Usuario:");
@@ -46,8 +48,6 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
 
         txtPass.setText("jPasswordField1");
         txtPass.setEnabled(false);
-
-        txtUsuario.setText("jTextField1");
 
         lblAcceso.setText("Nivel de Acceso: ");
 

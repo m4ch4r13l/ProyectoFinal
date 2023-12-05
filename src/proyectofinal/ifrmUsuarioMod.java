@@ -13,11 +13,11 @@ package proyectofinal;
  */
 public class ifrmUsuarioMod extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ifrmUsuarioMod
-     */
-    public ifrmUsuarioMod() {
+    FrmUsuario usuarioVentana;
+    
+    public ifrmUsuarioMod(FrmUsuario usuarioVentana) {
         initComponents();
+        this.usuarioVentana = usuarioVentana;
     }
 
     /**
@@ -37,6 +37,8 @@ public class ifrmUsuarioMod extends javax.swing.JInternalFrame {
         lblAcceso = new javax.swing.JLabel();
         rbtCajero = new javax.swing.JRadioButton();
         rbtAdmin = new javax.swing.JRadioButton();
+
+        setClosable(true);
 
         lblTitle.setText("Mod usuarios");
 
