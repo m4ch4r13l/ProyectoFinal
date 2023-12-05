@@ -16,7 +16,7 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
     /**
      * Creates new form ifrmUsuarioAdd
      */
-    public ifrmUsuarioAdd(frmUsuario usuarioVentana) {
+    public ifrmUsuarioAdd(frmUsuario2 usuarioVentana) {
         initComponents();
     }
 
