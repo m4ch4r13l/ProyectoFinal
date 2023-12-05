@@ -27,9 +27,9 @@ public Usuario a[] = new Usuario[tam];
         for(int i = 0; i<tam;i++){
             a[i] = new Usuario();
         }
-        a[0] = new Usuario(12345,"Eduardo","123","cajero",false);
-        a[1] = new Usuario(23456,"Machariel","234","cajero",false);
-        a[2] = new Usuario(34567,"Jesus","456","cajero",false);
+        a[0] = new Usuario(12345,"Eduardo","123",true,true);
+        a[1] = new Usuario(23456,"Machariel","234",true,true);
+        a[2] = new Usuario(34567,"Jesus","456",false,true);
        
                 
         initComponents();
