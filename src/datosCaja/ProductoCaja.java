@@ -9,30 +9,28 @@ package datosCaja;
  * @author macha
  */
 public class ProductoCaja {
-    private String producto;
-    private int cantidad;
-    private float precio;
-
-    public ProductoCaja(String producto, int cantidad, float precio) {
-        this.producto = producto;
-        this.cantidad = cantidad;
+    public ProductoCaja aptSiguiente;
+    String nombre;
+    float precio;
+    int cant =0;
+    
+    public ProductoCaja(String nombre, float precio, int cant) {
+        this(nombre, precio, cant, null);
+    }
+    
+    public ProductoCaja(String nombre, float precio, int cant, ProductoCaja aptSiguiente) {
+        this.nombre = nombre;
         this.precio = precio;
+        this.cant = cant;
+        this.aptSiguiente = aptSiguiente;
     }
 
-    public String getProducto() {
-        return producto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public float getPrecio() {
@@ -42,4 +40,22 @@ public class ProductoCaja {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+
+    public int getCant() {
+        return cant;
+    }
+
+    public void setCant(int cant) {
+        this.cant = cant;
+    }
+
+    public ProductoCaja getAptSiguiente() {
+        return aptSiguiente;
+    }
+
+    public void setAptSiguiente(ProductoCaja aptSiguiente) {
+        this.aptSiguiente = aptSiguiente;
+    }
+    
+    
 }

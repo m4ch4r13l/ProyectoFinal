@@ -71,15 +71,15 @@ public class Producto {
     }
     
     public void cargarProductos(){
-        add(1, "Arroz", 1.50f, 100);
-        add(2, "Aceite de oliva", 5.75f, 50);
-        add(3, "Pasta", 2.00f, 80);
-        add(4, "Lentejas", 1.75f, 120);
-        add(5, "Galletas", 3.25f, 60);
-        add(6, "Jabón en barra", 1.20f, 150);
-        add(7, "Leche", 2.50f, 90);
-        add(8, "Azúcar", 1.80f, 110);
-        add(9, "Sopa enlatada", 2.75f, 70);
-        add(10, "Cepillo de dientes", 1.99f, 100);
+        add(1, "Arroz", 70.00f, 100);
+        add(2, "Aceite de oliva", 140.00f, 50);
+        add(3, "Pasta", 250.00f, 80);
+        add(4, "Lentejas 1Kg", 385.00f, 120);
+        add(5, "Galletas", 30.00f, 60);
+        add(6, "Jabón en barra", 24.00f, 150);
+        add(7, "Leche 2L", 50.00f, 90);
+        add(8, "Azúcar 1Kg", 32.00f, 110);
+        add(9, "Sopa enlatada", 68.00f, 70);
+        add(10, "Cepillo de dientes", 40.00f, 100);
     }
 }

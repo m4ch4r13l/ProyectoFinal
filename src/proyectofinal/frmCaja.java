@@ -7,6 +7,8 @@ package proyectofinal;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import javax.swing.table.DefaultTableModel;
+import datosCaja.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,15 +23,19 @@ public class frmCaja extends javax.swing.JFrame {
     String productoNombre[];
     int cant[];
     float precio[];
+    float totalPagar = 0.0f;
+    
+    ColaPedido colaPedido = new ColaPedido();
     
     //datos del Main
     frmMain main;
-    Producto product;
+    Producto productList;
     
     public frmCaja() {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        /*
         DefaultTableModel modelo = new DefaultTableModel();
         String[] cabecera = {"Producto", "Cantidad", "Precio"};
         modelo.setColumnIdentifiers(cabecera);
@@ -43,28 +49,31 @@ public class frmCaja extends javax.swing.JFrame {
             modelo.addRow(datos);
         }
         tblPedido.setModel(modelo);
+        */
     }
     
-    public frmCaja(frmMain main, Producto product) {
+    public frmCaja(frmMain main, Producto productList) {
         this.main = main;
-        this.product = product;
+        this.productList = productList;
         
         initComponents();
         this.setLocationRelativeTo(null);
         
+        /*
         DefaultTableModel modelo = new DefaultTableModel();
         String[] cabecera = {"Producto", "Cantidad", "Precio"};
         modelo.setColumnIdentifiers(cabecera);
         
         Object[] datos = new Object[3];
         
-        for (int i = 0; i < product.cant; i++) {
+        for (int i = 0; i < 2; i++) {
             datos [0] = product.pro[i].getNombre();
             datos [1] = null;
             datos [2] = product.pro[i].getPrecio();
             modelo.addRow(datos);
         }
         tblPedido.setModel(modelo);
+        */
     }
 
     /**
@@ -76,112 +85,22 @@ public class frmCaja extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblPedido = new javax.swing.JTable();
         headerPanel = new javax.swing.JPanel();
         lblExit = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        pnlPedido = new javax.swing.JPanel();
+        pnlHead = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtCodigoProducto = new javax.swing.JTextField();
+        pnlTblPedido = new javax.swing.JScrollPane();
+        tblPedido = new javax.swing.JTable();
+        pnlCons = new javax.swing.JPanel();
+        lblTotal = new javax.swing.JLabel();
+        btnPagar = new javax.swing.JPanel();
+        lblPagar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(242, 242, 242));
-        jPanel1.setForeground(new java.awt.Color(242, 242, 242));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoh (1).png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jButton1.setText("Pagar");
-
-        tblPedido.setBackground(new java.awt.Color(242, 242, 242));
-        tblPedido.setForeground(new java.awt.Color(0, 0, 0));
-        tblPedido.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Producto", "Cantidad", "Precio"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tblPedido.setEnabled(false);
-        tblPedido.setFocusable(false);
-        jScrollPane2.setViewportView(tblPedido);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 560));
 
         headerPanel.setOpaque(false);
         headerPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -234,20 +153,167 @@ public class frmCaja extends javax.swing.JFrame {
 
         getContentPane().add(headerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, -1));
 
-        jPanel2.setBackground(new java.awt.Color(10, 70, 192));
+        pnlPedido.setBackground(new java.awt.Color(242, 242, 242));
+        pnlPedido.setForeground(new java.awt.Color(242, 242, 242));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoh (1).png"))); // NOI18N
+
+        javax.swing.GroupLayout pnlHeadLayout = new javax.swing.GroupLayout(pnlHead);
+        pnlHead.setLayout(pnlHeadLayout);
+        pnlHeadLayout.setHorizontalGroup(
+            pnlHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(179, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+        pnlHeadLayout.setVerticalGroup(
+            pnlHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 290, 560));
+        txtCodigoProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoProductoActionPerformed(evt);
+            }
+        });
+        txtCodigoProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoProductoKeyTyped(evt);
+            }
+        });
+
+        tblPedido.setBackground(new java.awt.Color(242, 242, 242));
+        tblPedido.setForeground(new java.awt.Color(0, 0, 0));
+        tblPedido.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Producto", "Cantidad", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblPedido.setEnabled(false);
+        tblPedido.setFocusable(false);
+        pnlTblPedido.setViewportView(tblPedido);
+
+        javax.swing.GroupLayout pnlPedidoLayout = new javax.swing.GroupLayout(pnlPedido);
+        pnlPedido.setLayout(pnlPedidoLayout);
+        pnlPedidoLayout.setHorizontalGroup(
+            pnlPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPedidoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPedidoLayout.createSequentialGroup()
+                        .addComponent(pnlHead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlPedidoLayout.createSequentialGroup()
+                        .addGroup(pnlPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtCodigoProducto, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlTblPedido, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        pnlPedidoLayout.setVerticalGroup(
+            pnlPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPedidoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlHead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlTblPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(pnlPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 560));
+
+        pnlCons.setBackground(new java.awt.Color(10, 70, 192));
+
+        lblTotal.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(242, 242, 242));
+        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTotal.setText("TOTAL: ");
+
+        btnPagar.setBackground(new java.awt.Color(255, 223, 48));
+        btnPagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPagar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPagarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPagarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnPagarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnPagarMouseReleased(evt);
+            }
+        });
+
+        lblPagar.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        lblPagar.setForeground(new java.awt.Color(242, 242, 242));
+        lblPagar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPagar.setText("PAGAR");
+
+        javax.swing.GroupLayout btnPagarLayout = new javax.swing.GroupLayout(btnPagar);
+        btnPagar.setLayout(btnPagarLayout);
+        btnPagarLayout.setHorizontalGroup(
+            btnPagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnPagarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        btnPagarLayout.setVerticalGroup(
+            btnPagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnPagarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout pnlConsLayout = new javax.swing.GroupLayout(pnlCons);
+        pnlCons.setLayout(pnlConsLayout);
+        pnlConsLayout.setHorizontalGroup(
+            pnlConsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlConsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlConsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnlConsLayout.setVerticalGroup(
+            pnlConsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlConsLayout.createSequentialGroup()
+                .addContainerGap(478, Short.MAX_VALUE)
+                .addComponent(lblTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(pnlCons, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 290, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -269,7 +335,7 @@ public class frmCaja extends javax.swing.JFrame {
     private void lblExitMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseReleased
         if (evt.getButton() == MouseEvent.BUTTON1) {
             dispose();
-            main.dispose();
+            main.setVisible(true);
             lblExit.setBackground(Color.red);
         }
     }//GEN-LAST:event_lblExitMouseReleased
@@ -285,6 +351,122 @@ public class frmCaja extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_headerPanelMousePressed
 
+    private void txtCodigoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoProductoActionPerformed
+        if (txtCodigoProducto.getText().isEmpty()) {
+            //Detecta si el txtCodigoProducto esta vacio.
+            JOptionPane.showConfirmDialog(this, "Escane un producto.");
+        } else {
+            //calculamos la cantidad del producto segun el formato del txtCodigoProducto.
+            int cantProductCalc = calcularCantProductos(txtCodigoProducto.getText());
+            int productoCodigo = Integer.parseInt(txtCodigoProducto.getText());
+            boolean productEncontrado = false; //Bandera para saber si se encontro el producto
+            
+            //Recorremos la lista de productos
+            for (int i = 0; i < productList.cant; i++) {
+                //comparamos el codigo con el codigo de la lista de producto por si coinciden
+                if (productList.pro[i].id == productoCodigo) {
+                    String producto = productList.pro[i].getNombre(); //extraemos el nombre del producto
+                    float precio = productList.pro[i].getPrecio(); //extraemos el precio del producto
+                    float pagarCant = 0.0f; //inicializamos el valor de la cantidad a pagar
+                    colaPedido.Encolar(producto, precio, cantProductCalc); //Encolamos el producto en la colaPedido
+                    productEncontrado = true; //Validamos que el producto fue encontrado
+
+                    DefaultTableModel modelo = new DefaultTableModel();
+                    String[] cabecera = {"Producto", "Cantidad", "Precio"};
+                    modelo.setColumnIdentifiers(cabecera);
+
+                    String nombreProduct[] = new String[this.colaPedido.cantNodos];
+                    float precioProduct[] = new float[this.colaPedido.cantNodos];
+                    int cantProduct[] = new int[this.colaPedido.cantNodos];
+
+                    nombreProduct = this.colaPedido.imprimirNombre();
+                    precioProduct = this.colaPedido.imprimirPrecio();
+                    cantProduct = this.colaPedido.imprimirCant();
+
+                    Object[] datos = new Object[3];
+
+                    for (int j = 0; j < this.colaPedido.cantNodos; j++) {
+                        datos [0] = nombreProduct[j];
+                        datos [1] = cantProduct[j];
+                        datos [2] = "$" + Float.toString(precioProduct[j] * cantProduct[j]);
+                        pagarCant += (precioProduct[j] * cantProduct[j]);
+                        modelo.addRow(datos);
+                    }
+                    totalPagar = pagarCant; //pasamos el valor a la variable global totalPagar
+                    lblTotal.setText("TOTAL: $"+ Float.toString(totalPagar));
+                    tblPedido.setModel(modelo);
+                    break; //interrumpimos el for
+                }
+            }
+            if (!productEncontrado) {
+                JOptionPane.showConfirmDialog(this, "Producto no encontrado.");
+            }
+            txtCodigoProducto.setText("");
+        }
+    }//GEN-LAST:event_txtCodigoProductoActionPerformed
+
+    private void btnPagarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPagarMouseEntered
+        btnPagar.setBackground(new Color(246, 255, 48));
+    }//GEN-LAST:event_btnPagarMouseEntered
+
+    private void btnPagarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPagarMouseExited
+        btnPagar.setBackground(new Color(255, 223, 48));
+    }//GEN-LAST:event_btnPagarMouseExited
+
+    private void btnPagarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPagarMousePressed
+        btnPagar.setBackground(new Color(242, 211, 45));
+    }//GEN-LAST:event_btnPagarMousePressed
+
+    private void btnPagarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPagarMouseReleased
+        btnPagar.setBackground(new Color(255, 223, 48));
+        colaPedido.limpiarDatos();
+        colaPedido.RecorrerPila();
+        DefaultTableModel modelo = new DefaultTableModel();
+        String[] cabecera = {"Producto", "Cantidad", "Precio"};
+        modelo.setColumnIdentifiers(cabecera);
+
+        Object[] datos = new Object[3];
+        totalPagar = 0.0f;
+        lblTotal.setText("TOTAL: $"+ Float.toString(totalPagar));
+        tblPedido.setModel(modelo);
+    }//GEN-LAST:event_btnPagarMouseReleased
+
+    private void txtCodigoProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoProductoKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c) && c != '*') {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtCodigoProductoKeyTyped
+
+    public int calcularCantProductos(String input){
+        if (input.contains("*")) {
+            String[] partes = input.split("\\*");
+            if (partes.length == 2) {
+                try {
+                    // Obtener la parte después del '*'
+                    String resultado = partes[1].trim();
+                    // Actualizar el JTextField
+                    txtCodigoProducto.setText(resultado);
+                    
+                    int numero = Integer.parseInt(partes[0].trim());
+                    // Puedes hacer lo que quieras con 'numero' aquí
+                    
+                    System.out.println("Numero de cantidad: " + numero + ".");
+                    return numero;
+                } catch (NumberFormatException ex) {
+                    System.err.println("Error al convertir el número.");
+                }
+            } else {
+                System.err.println("Formato incorrecto. Asegúrate de incluir solo un '*'.");
+            }
+        } else {
+            System.err.println("No se encontró '*'.");
+        }
+        return 1;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -324,15 +506,17 @@ public class frmCaja extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel btnPagar;
     private javax.swing.JPanel headerPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblPagar;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JPanel pnlCons;
+    private javax.swing.JPanel pnlHead;
+    private javax.swing.JPanel pnlPedido;
+    private javax.swing.JScrollPane pnlTblPedido;
     private javax.swing.JTable tblPedido;
+    private javax.swing.JTextField txtCodigoProducto;
     // End of variables declaration//GEN-END:variables
 }

@@ -188,7 +188,7 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                      <EmptySpace pref="74" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnProduct" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnExit" alignment="1" min="-2" max="-2" attributes="0"/>

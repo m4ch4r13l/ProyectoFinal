@@ -8,5 +8,6 @@ package datosCaja;
  *
  * @author macha
  */
-public class Ventas {
+public class nodoPedido {
+    
 }
