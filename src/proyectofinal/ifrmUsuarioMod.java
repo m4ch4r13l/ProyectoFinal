@@ -13,9 +13,9 @@ package proyectofinal;
  */
 public class ifrmUsuarioMod extends javax.swing.JInternalFrame {
 
-    FrmUsuario usuarioVentana;
+    frmUsuario usuarioVentana;
     
-    public ifrmUsuarioMod(FrmUsuario usuarioVentana) {
+    public ifrmUsuarioMod(frmUsuario usuarioVentana) {
         initComponents();
         this.usuarioVentana = usuarioVentana;
     }
@@ -37,22 +37,38 @@ public class ifrmUsuarioMod extends javax.swing.JInternalFrame {
         lblAcceso = new javax.swing.JLabel();
         rbtCajero = new javax.swing.JRadioButton();
         rbtAdmin = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
 
-        lblTitle.setText("Mod usuarios");
+        lblTitle.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Modificar usuarios");
 
+        lblUsuario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblUsuario.setText("Nombre de Usuario:");
 
+        lblcontraseña.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lblcontraseña.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblcontraseña.setText("Contraseña:");
 
-        txtPass.setText("jPasswordField1");
+        txtPass.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtPass.setEnabled(false);
 
+        cbxBox.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         cbxBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxBoxActionPerformed(evt);
+            }
+        });
 
+        lblAcceso.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lblAcceso.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAcceso.setText("Nivel de Acceso:");
 
+        rbtCajero.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         rbtCajero.setText("Cajero");
         rbtCajero.setEnabled(false);
         rbtCajero.addActionListener(new java.awt.event.ActionListener() {
@@ -61,35 +77,39 @@ public class ifrmUsuarioMod extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtAdmin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         rbtAdmin.setText("Administrador");
         rbtAdmin.setEnabled(false);
+
+        jButton1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jButton1.setText("Modificar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(172, 172, 172)
-                            .addComponent(lblTitle))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblcontraseña)
-                                .addComponent(lblUsuario))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbxBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(rbtAdmin))))
+                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblcontraseña, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAcceso)
-                            .addComponent(rbtCajero))))
-                .addContainerGap(151, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rbtCajero)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rbtAdmin)
+                                .addGap(0, 61, Short.MAX_VALUE))
+                            .addComponent(cbxBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPass)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,17 +119,18 @@ public class ifrmUsuarioMod extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsuario)
                     .addComponent(cbxBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblcontraseña)
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(lblAcceso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAcceso)
                     .addComponent(rbtCajero)
                     .addComponent(rbtAdmin))
-                .addGap(0, 77, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
@@ -119,9 +140,14 @@ public class ifrmUsuarioMod extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtCajeroActionPerformed
 
+    private void cbxBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbxBox;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblAcceso;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUsuario;

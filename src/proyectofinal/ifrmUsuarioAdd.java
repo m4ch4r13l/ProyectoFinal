@@ -16,7 +16,7 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
     /**
      * Creates new form ifrmUsuarioAdd
      */
-    public ifrmUsuarioAdd(FrmUsuario usuarioVentana) {
+    public ifrmUsuarioAdd(frmUsuario usuarioVentana) {
         initComponents();
     }
 
@@ -29,6 +29,7 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGrupNivel = new javax.swing.ButtonGroup();
         lblTitle = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
@@ -37,54 +38,70 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
         lblAcceso = new javax.swing.JLabel();
         rbtCajero = new javax.swing.JRadioButton();
         rbtAdmin = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
 
-        lblTitle.setText("Usuarios");
+        lblTitle.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Agregar Usuarios");
 
+        lblNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         lblNombre.setText("Nombre de Usuario:");
 
+        lblContraseña.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         lblContraseña.setText("Contraseña:");
 
-        txtPass.setText("jPasswordField1");
-        txtPass.setEnabled(false);
+        txtPass.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
+        txtUsuario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
+        lblAcceso.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         lblAcceso.setText("Nivel de Acceso: ");
 
-        rbtCajero.setText("Cajero");
-        rbtCajero.setEnabled(false);
+        btnGrupNivel.add(rbtCajero);
+        rbtCajero.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        rbtCajero.setSelected(true);
+        rbtCajero.setText("Cajero.");
 
-        rbtAdmin.setText("Administrador");
-        rbtAdmin.setEnabled(false);
+        btnGrupNivel.add(rbtAdmin);
+        rbtAdmin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        rbtAdmin.setText("Administrador.");
+
+        jButton1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jButton1.setText("Agregar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUsuario))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblContraseña)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(lblTitle))
+                .addContainerGap()
+                .addComponent(lblAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbtCajero)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbtAdmin)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAcceso)
+                            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(rbtCajero)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rbtAdmin)))))
-                .addContainerGap(185, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtUsuario)
+                                    .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,17 +111,18 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContraseña)
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(lblAcceso)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAcceso)
                     .addComponent(rbtCajero)
                     .addComponent(rbtAdmin))
-                .addGap(0, 79, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
@@ -112,6 +130,8 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btnGrupNivel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblAcceso;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblNombre;

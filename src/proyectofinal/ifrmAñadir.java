@@ -13,34 +13,27 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ifrmAñadir extends javax.swing.JInternalFrame {
 public Producto product;
-frmProductos pros;
-
-
-
-
     /**
      * Creates new form Añadir
      */
     public ifrmAñadir(frmProductos pro, Producto prod) {
         initComponents();
         DefaultTableModel modp = new DefaultTableModel();
-       String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
-      product = prod;
-      modp.setColumnIdentifiers(cabezap);
-      if(product.cant !=0){
-       Object[] datosp = new Object[product.pro.length];
-       for(int i =0; i<product.cant;i++){
-           datosp [0] = product.pro[i].getId();
-           datosp [1] = product.pro[i].getNombre();
-           datosp [2] = product.pro[i].getPrecio();
-           datosp [3] = product.pro[i].getStock();
-           modp.addRow(datosp);   
-      } 
-      
-       } 
-       
-       table.setModel(modp);
-        
+        String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
+        product = prod;
+        modp.setColumnIdentifiers(cabezap);
+        if(product.cant !=0){
+            Object[] datosp = new Object[product.pro.length];
+            for(int i =0; i<product.cant;i++){
+                datosp [0] = product.pro[i].getId();
+                datosp [1] = product.pro[i].getNombre();
+                datosp [2] = product.pro[i].getPrecio();
+                datosp [3] = product.pro[i].getStock();
+                modp.addRow(datosp);   
+            } 
+        }
+        table.setModel(modp);
+
     }
 
     /**
@@ -165,26 +158,21 @@ frmProductos pros;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- if(!txtid.getText().isEmpty() && !txtnom.getText().isEmpty() && !txtpre.getText().isEmpty() && !txtstok.getText().isEmpty()){
-    product.add(Integer.valueOf(txtid.getText()), txtnom.getText(), Float.valueOf(txtpre.getText()), Integer.valueOf(txtstok.getText()));
-   DefaultTableModel modp = new DefaultTableModel();
-       String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
-       Object[] datosp = new Object[product.pro.length];
-       modp.setColumnIdentifiers(cabezap);
-       for(int i =0; i<product.cant;i++){
-           datosp [0] = product.pro[i].getId();
-           datosp [1] = product.pro[i].getNombre();
-           datosp [2] = product.pro[i].getPrecio();
-           datosp [3] = product.pro[i].getStock();
-           modp.addRow(datosp);
-       }
-       table.setModel(modp);
-     
-     
- }else{
-     
- }                  
-        
+        if(!txtid.getText().isEmpty() && !txtnom.getText().isEmpty() && !txtpre.getText().isEmpty() && !txtstok.getText().isEmpty()){
+        product.add(Integer.valueOf(txtid.getText()), txtnom.getText(), Float.valueOf(txtpre.getText()), Integer.valueOf(txtstok.getText()));
+        DefaultTableModel modp = new DefaultTableModel();
+        String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
+        Object[] datosp = new Object[product.pro.length];
+        modp.setColumnIdentifiers(cabezap);
+        for(int i =0; i<product.cant;i++){
+            datosp [0] = product.pro[i].getId();
+            datosp [1] = product.pro[i].getNombre();
+            datosp [2] = product.pro[i].getPrecio();
+            datosp [3] = product.pro[i].getStock();
+            modp.addRow(datosp);
+        }
+        table.setModel(modp);
+    }else{ }                  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnmostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmostActionPerformed

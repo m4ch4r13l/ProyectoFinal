@@ -171,9 +171,9 @@ public class frmProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-    ifrmEliminar v4 = new ifrmEliminar(this,po);
-    d.add(v4);
-    v4.show();
+        ifrmEliminar v4 = new ifrmEliminar(this,po);
+        d.add(v4);
+        v4.show();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -183,9 +183,9 @@ public class frmProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-     ifrmañadirStok v3 = new ifrmañadirStok(this, po);
-     d.add(v3);
-     v3.show();
+        ifrmañadirStok v3 = new ifrmañadirStok(this, po);
+        d.add(v3);
+        v3.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -200,15 +200,15 @@ public class frmProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-     ifrmEditarProductos v7 = new ifrmEditarProductos(this,po);
-     d.add(v7);
-     v7.show();
+        ifrmEditarProductos v7 = new ifrmEditarProductos(this,po);
+        d.add(v7);
+        v7.show();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-      ifrmeliminarStok v6 = new ifrmeliminarStok(this,po);
-      d.add(v6);
-      v6.show();
+        ifrmeliminarStok v6 = new ifrmeliminarStok(this,po);
+        d.add(v6);
+        v6.show();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
