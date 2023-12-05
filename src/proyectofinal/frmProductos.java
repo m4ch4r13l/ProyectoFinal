@@ -5,6 +5,13 @@
  */
 package proyectofinal;
 
+import internalFrames.ifrmProductAñadir;
+import internalFrames.ifrmProductConsulta;
+import internalFrames.ifrmProductAñadirStok;
+import internalFrames.ifrmProductEliminar;
+import internalFrames.ifrmProductEliminarStok;
+import internalFrames.ifrmProductEditar;
+
 /**
  *
  * @author tikis
@@ -136,7 +143,7 @@ public class frmProductos extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
-        jMenu6.setText("Regresar");
+        jMenu6.setText("Navegar");
 
         jMenuItem7.setText("Regresar");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -171,19 +178,19 @@ public class frmProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        ifrmEliminar v4 = new ifrmEliminar(this,po);
+        ifrmProductEliminar v4 = new ifrmProductEliminar(this,po);
         d.add(v4);
         v4.show();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ifrmAñadir v1 = new ifrmAñadir(this,po);
+        ifrmProductAñadir v1 = new ifrmProductAñadir(this,po);
         d.add(v1);
         v1.show();  
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ifrmañadirStok v3 = new ifrmañadirStok(this, po);
+        ifrmProductAñadirStok v3 = new ifrmProductAñadirStok(this, po);
         d.add(v3);
         v3.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -194,19 +201,19 @@ public class frmProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-       ifrmConsulta v2 = new ifrmConsulta(this,po);
+       ifrmProductConsulta v2 = new ifrmProductConsulta(this,po);
        d.add(v2);
        v2.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        ifrmEditarProductos v7 = new ifrmEditarProductos(this,po);
+        ifrmProductEditar v7 = new ifrmProductEditar(this,po);
         d.add(v7);
         v7.show();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        ifrmeliminarStok v6 = new ifrmeliminarStok(this,po);
+        ifrmProductEliminarStok v6 = new ifrmProductEliminarStok(this,po);
         d.add(v6);
         v6.show();
     }//GEN-LAST:event_jMenuItem4ActionPerformed

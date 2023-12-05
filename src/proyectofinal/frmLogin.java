@@ -13,27 +13,21 @@ import javax.swing.JOptionPane;
  * @author macha
  */
 public class frmLogin extends javax.swing.JFrame {
-private int tam = 20;
-private int cantUser = 3;
-public Usuario a[] = new Usuario[tam];
+    private int tam = 20;
+    public Usuario users = new Usuario();
     /**
      * Creates new form frmLogin
      */
     
     int xMouse, yMouse;
-    boolean userEnter = false, passEnter = false;
+    public boolean userEnter = false, passEnter = false;
+    
+    boolean userError = false;
     
     public frmLogin() {
-        for(int i = 0; i<tam;i++){
-            a[i] = new Usuario();
-        }
-        a[0] = new Usuario(12345,"Eduardo","123",true,true);
-        a[1] = new Usuario(23456,"Machariel","234",true,true);
-        a[2] = new Usuario(34567,"Jesus","456",false,true);
-       
-                
         initComponents();
         this.setLocationRelativeTo(null);
+        users.loadUsers();
     }
 
     /**
@@ -371,33 +365,51 @@ public Usuario a[] = new Usuario[tam];
     }//GEN-LAST:event_btnLoginMouseReleased
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        Login();
+        if (!userError) {
+            Login();
+        }
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        Login();
+        if (!userError) {
+            Login();
+        }
     }//GEN-LAST:event_txtPassActionPerformed
 
     
     public void Login(){
-        String us = txtUser.getText();
-        String con = txtPass.getText();
-        boolean ac = false;
-
-        for(int i=0; i<cantUser;i++){        
-            if(a[i].getNombre().equals(us) && a[i].getContrasena().equals(con)){
-                frmMain f = new frmMain();
-                f.setVisible(true);
-                //this.setVisible(false);
-                dispose();
-                ac = true;  
+        String user = txtUser.getText();
+        String pass = txtPass.getText();
+        boolean userAcces = false, passAcces = false;
+        
+        for(int i=0; i<users.idUsers;i++){   
+            System.out.println("Usuario Id:" + i);
+            if(users.users[i].getNombre().equals(user)){
+                userAcces = true;
+                if (users.users[i].getContrasena().equals(pass)) {
+                    passAcces = true;
+                    frmMain f = new frmMain(this, users, users.users[i].getRegistro());
+                    f.setVisible(true);
+                    this.setVisible(false);
+                    txtUser.setText("");
+                    txtUser.requestFocus();
+                    txtPass.setText("contraseña");
+                    txtPass.setForeground(new Color(204,204,204));
+                }
             }
         }
-        if(!ac){
-            JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "Advertencia", JOptionPane.WARNING_MESSAGE);    
-            txtUser.setText("");
-            txtPass.setText("");
-            txtUser.requestFocus();
+        if(!userAcces){
+            userError = true;
+            JOptionPane.showMessageDialog(this, "Usuario incorrecta", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            txtUser.selectAll();
+            userError = false;
+        }
+        if (userAcces && !passAcces) {
+            userError = true;
+            JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            txtPass.selectAll();
+            userError = false;
+            
         }
     }
     

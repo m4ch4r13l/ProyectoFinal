@@ -1,4 +1,8 @@
-package proyectofinal;
+package internalFrames;
+
+import javax.swing.JOptionPane;
+import proyectofinal.Usuario;
+import proyectofinal.frmUsuario;
 
 
 
@@ -16,8 +20,17 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
     /**
      * Creates new form ifrmUsuarioAdd
      */
-    public ifrmUsuarioAdd(frmUsuario usuarioVentana) {
+    frmUsuario usuarioVentana;
+    Usuario userList;
+    
+    public ifrmUsuarioAdd(frmUsuario usuarioVentana, Usuario userList) {
         initComponents();
+        this.usuarioVentana = usuarioVentana;
+        this.userList = userList;
+        
+        for (int i = 0; i < userList.idUsers; i++) {
+            System.out.println(userList.users[i].getNombre() + " id: " + userList.users[i].getRegistro());
+        }
     }
 
     /**
@@ -38,7 +51,7 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
         lblAcceso = new javax.swing.JLabel();
         rbtCajero = new javax.swing.JRadioButton();
         rbtAdmin = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -68,8 +81,13 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
         rbtAdmin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         rbtAdmin.setText("Administrador.");
 
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jButton1.setText("Agregar");
+        btnAgregar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +105,7 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(btnAgregar))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,17 +139,38 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
                     .addComponent(rbtCajero)
                     .addComponent(rbtAdmin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnAgregar)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        if (!txtUsuario.getText().isEmpty() && !txtPass.getText().isEmpty()) {
+            int registro = userList.idUsers;
+            System.out.println("registro: " + registro);
+            String nombre = txtUsuario.getText();
+            String pass = txtPass.getText();
+            boolean admin = false;
+            if (rbtCajero.isSelected()) {
+                admin = false;
+            }
+            if (rbtAdmin.isSelected()) {
+                admin = true;
+            }
+            userList.add(registro + 1, nombre, pass, admin, true);
+            JOptionPane.showMessageDialog(this, "Usuario "+userList.users[registro].getNombre()+"Registrado con exito.", "Registrado", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Ingrese todos los datos.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtUsuario.requestFocus();
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
     private javax.swing.ButtonGroup btnGrupNivel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblAcceso;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblNombre;

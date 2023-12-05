@@ -1,5 +1,8 @@
 package proyectofinal;
 
+import internalFrames.ifrmUsuarioAdd;
+import internalFrames.ifrmUsuarioMod;
+
 
 
 /*
@@ -12,15 +15,16 @@ package proyectofinal;
  * @author lcarv
  */
 public class frmUsuario extends javax.swing.JFrame {
-
-    
     frmMain main;
+    Usuario userList;
+    
     public frmUsuario() {
         initComponents();
     }
-    public frmUsuario(frmMain main) {
+    public frmUsuario(frmMain main, Usuario userList) {
         initComponents();
         this.main = main;
+        this.userList = userList;
         this.setLocationRelativeTo(null);
     }
 
@@ -41,7 +45,7 @@ public class frmUsuario extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         MniRegresar = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         javax.swing.GroupLayout DeskUsuarioLayout = new javax.swing.GroupLayout(DeskUsuario);
         DeskUsuario.setLayout(DeskUsuarioLayout);
@@ -51,7 +55,7 @@ public class frmUsuario extends javax.swing.JFrame {
         );
         DeskUsuarioLayout.setVerticalGroup(
             DeskUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGap(0, 541, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Usuarios");
@@ -96,14 +100,14 @@ public class frmUsuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DeskUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(DeskUsuario)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void MniUsuariosAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MniUsuariosAddActionPerformed
-        ifrmUsuarioAdd AddVentana = new ifrmUsuarioAdd(this);
+        ifrmUsuarioAdd AddVentana = new ifrmUsuarioAdd(this, userList);
         this.DeskUsuario.add(AddVentana);
         AddVentana.show();
     }//GEN-LAST:event_MniUsuariosAddActionPerformed
@@ -114,7 +118,7 @@ public class frmUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_MniRegresarActionPerformed
 
     private void MniUsuariosModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MniUsuariosModActionPerformed
-        ifrmUsuarioMod ModVentana = new ifrmUsuarioMod(this);
+        ifrmUsuarioMod ModVentana = new ifrmUsuarioMod(this, userList);
         this.DeskUsuario.add(ModVentana);
         ModVentana.show();
     }//GEN-LAST:event_MniUsuariosModActionPerformed

@@ -3,21 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectofinal;
+package internalFrames;
 
 import javax.swing.table.DefaultTableModel;
+import proyectofinal.Producto;
+import proyectofinal.frmProductos;
 
 /**
  *
  * @author tikis
  */
-public class ifrmConsulta extends javax.swing.JInternalFrame {
+public class ifrmProductConsulta extends javax.swing.JInternalFrame {
 public Producto product;
 frmProductos pros;
     /**
      * Creates new form ifrmConsulta
      */
-    public ifrmConsulta(frmProductos pro, Producto prod) {
+    public ifrmProductConsulta(frmProductos pro, Producto prod) {
         initComponents();
 DefaultTableModel modp = new DefaultTableModel();
        String[] cabezap = {"ID","Nombre","Precio","Stock"}; 

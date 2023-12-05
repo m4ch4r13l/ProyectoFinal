@@ -10,11 +10,13 @@ package proyectofinal;
  * @author tikis
  */
 public class Usuario {
+    
+    public Usuario users[] = new Usuario[15];
+    public int idUsers = 0;
     int registro;
     String nombre;
     String contrasena;
     boolean admin;
-    public int cant = 0;
     boolean disponible;
 
     public Usuario(int registro, String nombre, String contrasena, boolean admin, boolean disponible) {
@@ -23,11 +25,6 @@ public class Usuario {
         this.contrasena = contrasena;
         this.admin = admin;
         this.disponible = disponible;
-        this.cant++;
-    }
-
-    public int getCant() {
-        return cant;
     }
 
     public Usuario() {
@@ -57,11 +54,11 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public boolean getAdmin() {
+    public boolean isAdmin() {
         return admin;
     }
 
-    public void setAdmin(boolean nivel) {
+    public void setAdmin(boolean admin) {
         this.admin = admin;
     }
 
@@ -71,6 +68,24 @@ public class Usuario {
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
+    }
+    
+    
+    
+    public void add(int registro, String nombre, String contrasena, boolean admin, boolean disponible){
+        users[idUsers] = new Usuario(0,null,null,false,false);
+        users[idUsers].setRegistro(registro);
+        users[idUsers].setNombre(nombre);
+        users[idUsers].setContrasena(contrasena);
+        users[idUsers].setAdmin(admin);
+        users[idUsers].setDisponible(disponible);
+        idUsers++;
+    }
+    
+    public void loadUsers(){
+        add(idUsers+1,"Eduardo","123",true,true);
+        add(idUsers+1,"Machariel","234",true,true);
+        add(idUsers+1,"Jesus","456",false,true);
     }
     
 }

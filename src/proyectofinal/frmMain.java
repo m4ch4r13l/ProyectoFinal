@@ -6,6 +6,7 @@ package proyectofinal;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,10 +19,22 @@ public class frmMain extends javax.swing.JFrame {
      */
     int xMouse, yMouse;
     Producto productList = new Producto();
+    Usuario usersList;
+    frmLogin loginVentana;
+    int actUser;
     
     public frmMain() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    public frmMain(frmLogin loginVentana, Usuario usersList, int actUser) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.loginVentana = loginVentana;
+        this.usersList = usersList;
+        this.actUser = actUser-1;
+        lblTitle.setText("Bienvenido: " + usersList.users[this.actUser].getNombre());
     }
 
     /**
@@ -39,7 +52,7 @@ public class frmMain extends javax.swing.JFrame {
         pnlBody = new javax.swing.JPanel();
         pnlHead = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         btnCaja = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         btnUsers = new javax.swing.JPanel();
@@ -54,12 +67,10 @@ public class frmMain extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(242, 242, 242));
         setUndecorated(true);
         setResizable(false);
 
         pnlBack.setBackground(new java.awt.Color(10, 70, 192));
-        pnlBack.setForeground(new java.awt.Color(0, 0, 0));
 
         headerPanel.setOpaque(false);
         headerPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -111,18 +122,13 @@ public class frmMain extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlBody.setBackground(new java.awt.Color(242, 242, 242));
-        pnlBody.setForeground(new java.awt.Color(0, 0, 0));
-
         pnlHead.setBackground(new java.awt.Color(221, 221, 221));
-        pnlHead.setForeground(new java.awt.Color(0, 0, 0));
         pnlHead.setToolTipText("");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoh (1).png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Bienvenido: ");
+        lblTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        lblTitle.setText("Bienvenido: ");
 
         javax.swing.GroupLayout pnlHeadLayout = new javax.swing.GroupLayout(pnlHead);
         pnlHead.setLayout(pnlHeadLayout);
@@ -132,7 +138,7 @@ public class frmMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pnlHeadLayout.setVerticalGroup(
@@ -140,7 +146,7 @@ public class frmMain extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -290,22 +296,18 @@ public class frmMain extends javax.swing.JFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Caja");
 
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Usuarios");
 
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Salir");
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Productos");
 
@@ -409,6 +411,7 @@ public class frmMain extends javax.swing.JFrame {
 
     private void lblExitMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseReleased
         if (evt.getButton() == MouseEvent.BUTTON1) {
+            loginVentana.setVisible(true);
             dispose();
             lblExit.setBackground(Color.red);
         }
@@ -454,11 +457,14 @@ public class frmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsersMousePressed
 
     private void btnUsersMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsersMouseReleased
-        btnUsers.setBackground(new Color(255, 223, 48));
-        frmUsuario userVentana = new frmUsuario(this);
-        userVentana.setVisible(true);
-        this.setVisible(false);
-        
+        if (usersList.users[actUser].isAdmin()) {
+            btnUsers.setBackground(new Color(255, 223, 48));
+            frmUsuario userVentana = new frmUsuario(this, usersList);
+            userVentana.setVisible(true);
+            this.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario sin acceso.", "Sin acceso", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnUsersMouseReleased
 
     private void btnProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMouseEntered
@@ -474,10 +480,14 @@ public class frmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductMousePressed
 
     private void btnProductMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMouseReleased
-        btnProduct.setBackground(new Color(255, 223, 48));
-        frmProductos product = new frmProductos(this, productList);
-        product.setVisible(true);
-        this.setVisible(false);
+        if (usersList.users[actUser].isAdmin()) {
+            btnProduct.setBackground(new Color(255, 223, 48));
+            frmProductos product = new frmProductos(this, productList);
+            product.setVisible(true);
+            this.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario sin acceso.", "Sin acceso", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnProductMouseReleased
 
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
@@ -493,6 +503,8 @@ public class frmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitMousePressed
 
     private void btnExitMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseReleased
+        loginVentana.setVisible(true);
+        loginVentana.passEnter = false;
         btnExit.setBackground(new Color(255, 223, 48));
         dispose();
     }//GEN-LAST:event_btnExitMouseReleased
@@ -539,7 +551,6 @@ public class frmMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -547,6 +558,7 @@ public class frmMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlBack;
     private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlHead;
