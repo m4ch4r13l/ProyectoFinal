@@ -34,22 +34,6 @@ public class frmCaja extends javax.swing.JFrame {
     public frmCaja() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-        /*
-        DefaultTableModel modelo = new DefaultTableModel();
-        String[] cabecera = {"Producto", "Cantidad", "Precio"};
-        modelo.setColumnIdentifiers(cabecera);
-        
-        Object[] datos = new Object[3];
-        
-        for (int i = 0; i < 2; i++) {
-            datos [0] = product.pro[i].getNombre();
-            datos [1] = null;
-            datos [2] = product.pro[i].getPrecio();
-            modelo.addRow(datos);
-        }
-        tblPedido.setModel(modelo);
-        */
     }
     
     public frmCaja(frmMain main, Producto productList) {
@@ -58,22 +42,6 @@ public class frmCaja extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(null);
-        
-        /*
-        DefaultTableModel modelo = new DefaultTableModel();
-        String[] cabecera = {"Producto", "Cantidad", "Precio"};
-        modelo.setColumnIdentifiers(cabecera);
-        
-        Object[] datos = new Object[3];
-        
-        for (int i = 0; i < 2; i++) {
-            datos [0] = product.pro[i].getNombre();
-            datos [1] = null;
-            datos [2] = product.pro[i].getPrecio();
-            modelo.addRow(datos);
-        }
-        tblPedido.setModel(modelo);
-        */
     }
 
     /**
