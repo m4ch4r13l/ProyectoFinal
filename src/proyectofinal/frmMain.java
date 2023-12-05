@@ -455,7 +455,7 @@ public class frmMain extends javax.swing.JFrame {
 
     private void btnUsersMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsersMouseReleased
         btnUsers.setBackground(new Color(255, 223, 48));
-        frmUsuario2 userVentana = new frmUsuario2(this);
+        frmUsuario userVentana = new frmUsuario(this);
         userVentana.setVisible(true);
         this.setVisible(false);
         

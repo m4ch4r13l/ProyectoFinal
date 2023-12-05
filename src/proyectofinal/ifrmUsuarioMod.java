@@ -13,9 +13,9 @@ package proyectofinal;
  */
 public class ifrmUsuarioMod extends javax.swing.JInternalFrame {
 
-    frmUsuario2 usuarioVentana;
+    frmUsuario usuarioVentana;
     
-    public ifrmUsuarioMod(frmUsuario2 usuarioVentana) {
+    public ifrmUsuarioMod(frmUsuario usuarioVentana) {
         initComponents();
         this.usuarioVentana = usuarioVentana;
     }
