@@ -17,12 +17,12 @@ public class frmMain extends javax.swing.JFrame {
      * Creates new form frmMain
      */
     int xMouse, yMouse;
-    Producto po = new Producto();
+    Producto productList = new Producto();
     
     public frmMain() {
         initComponents();
         this.setLocationRelativeTo(null);
-        po.cargarProductos();
+        productList.cargarProductos();
     }
 
     /**
@@ -441,7 +441,7 @@ public class frmMain extends javax.swing.JFrame {
     private void btnCajaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseReleased
         btnCaja.setBackground(new Color(255, 223, 48));
         
-        frmCaja cajaWin = new frmCaja(this, po);
+        frmCaja cajaWin = new frmCaja(this, productList);
         cajaWin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCajaMouseReleased
@@ -476,7 +476,7 @@ public class frmMain extends javax.swing.JFrame {
 
     private void btnProductMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMouseReleased
         btnProduct.setBackground(new Color(255, 223, 48));
-        frmProductos product = new frmProductos(this, po);
+        frmProductos product = new frmProductos(this, productList);
         product.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnProductMouseReleased
