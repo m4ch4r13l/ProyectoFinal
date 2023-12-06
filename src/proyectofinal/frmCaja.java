@@ -530,14 +530,14 @@ public class frmCaja extends javax.swing.JFrame {
             //calculamos la cantidad del producto segun el formato del txtCodigoProducto.
             int cantProductCalc = calcularCantProductos(txtCodigoProducto.getText());
             lisCantProduct.add(cantProductCalc);
-            int productoCodigo = Integer.parseInt(txtCodigoProducto.getText());
+            String productoCodigo = txtCodigoProducto.getText();
             boolean productEncontrado = false; //Bandera para saber si se encontro el producto
             
             //Recorremos la lista de productos
             for (int i = 0; i < productList.cant; i++) {
                 //comparamos el codigo con el codigo de la lista de producto por si coinciden
-                if (productList.pro[i].id == productoCodigo) {
-                    this.listIdsProducts.add(productoCodigo);
+                if (productList.pro[i].id.equals(productoCodigo)) {
+                    this.listIdsProducts.add(i);
                     String producto = productList.pro[i].getNombre(); //extraemos el nombre del producto
                     float precio = productList.pro[i].getPrecio(); //extraemos el precio del producto
                     float pagarCant = 0.0f; //inicializamos el valor de la cantidad a pagar

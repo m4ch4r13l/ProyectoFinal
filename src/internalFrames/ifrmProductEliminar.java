@@ -123,14 +123,14 @@ public Producto product;
     }// </editor-fold>//GEN-END:initComponents
 
     private void bnteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnteliminarActionPerformed
-        int idm = Integer.parseInt(txtID.getText());  
+        String idm = txtID.getText();  
         int band = 0;
         DefaultTableModel modp = new DefaultTableModel();
         String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
         int val = JOptionPane.showConfirmDialog(this,"Quierere eliminar este producto");
         if (val== JOptionPane.YES_OPTION) {
             for(int i=0; i < product.cant;i++){
-                if(product.pro[i].getId() == idm){
+                if(product.pro[i].getId().equals(idm)){
                     band = 1;
                     for(int x = i; x < product.cant-1;x++){
                         product.pro[x].setId(product.pro[x+1].getId());

@@ -146,7 +146,7 @@ public Producto product;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int idm = Integer.parseInt(txtidm.getText());
+        String idm = txtidm.getText();
        int stokn = Integer.parseInt(txtNT.getText());
       int band=0;
         int cant=0;
@@ -155,7 +155,7 @@ public Producto product;
        
        
         for(int i=0; i < product.cant;i++){
-        if(product.pro[i].getId() == idm){
+        if(product.pro[i].getId().equals(idm)){
             band = 1;
            
        

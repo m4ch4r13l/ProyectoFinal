@@ -180,7 +180,7 @@ public Producto product;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!txtid.getText().isEmpty() && !txtnom.getText().isEmpty() && !txtpre.getText().isEmpty() && !txtstok.getText().isEmpty()){
-        product.add(Integer.valueOf(txtid.getText()), txtnom.getText(), Float.valueOf(txtpre.getText()), Integer.valueOf(txtstok.getText()));
+        product.add(txtid.getText(), txtnom.getText(), Float.valueOf(txtpre.getText()), Integer.valueOf(txtstok.getText()));
         DefaultTableModel modp = new DefaultTableModel();
         String[] cabezap = {"ID","Nombre","Precio","Stock"}; 
         Object[] datosp = new Object[product.pro.length];

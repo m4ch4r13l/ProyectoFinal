@@ -174,7 +174,7 @@ frmProductos pros;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- int idm = Integer.parseInt(txtid.getText());
+ String idm = txtid.getText();
  String nom = txtnom.getText();
  float pre = Float.parseFloat(txtpre.getText());
  int stokn = Integer.parseInt(txtstok.getText());
@@ -185,7 +185,7 @@ frmProductos pros;
        
        
         for(int i=0; i < product.cant;i++){
-        if(product.pro[i].getId() == idm){
+        if(product.pro[i].getId().equals(idm)){
         band = 1;
         int val = JOptionPane.showConfirmDialog(this,"Confirmar Este movimiento");
            
