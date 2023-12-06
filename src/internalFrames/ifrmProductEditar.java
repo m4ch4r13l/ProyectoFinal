@@ -291,7 +291,7 @@ frmProductos pros;
         txtnom.setEnabled(false);
         txtpre.setEnabled(false);
         txtstok.setEnabled(false);
-        btnModificar.setEnabled(true);
+        btnModificar.setEnabled(false);
         txtid.requestFocus();
     }
 
