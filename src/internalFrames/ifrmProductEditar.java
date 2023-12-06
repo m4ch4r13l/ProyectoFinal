@@ -65,7 +65,8 @@ frmProductos pros;
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("ELIMINAR Productos");
+        setTitle("Editar Productos");
+        setToolTipText("");
 
         jLabel2.setText("ID");
 

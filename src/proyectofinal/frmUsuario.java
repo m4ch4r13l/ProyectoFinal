@@ -39,6 +39,7 @@ public class frmUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         DeskUsuario = new javax.swing.JDesktopPane();
+        lblFondo = new javax.swing.JLabel();
         MnuUsuarios = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mniUserAdd = new javax.swing.JMenuItem();
@@ -49,19 +50,27 @@ public class frmUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoP.png"))); // NOI18N
+
+        DeskUsuario.setLayer(lblFondo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout DeskUsuarioLayout = new javax.swing.GroupLayout(DeskUsuario);
         DeskUsuario.setLayout(DeskUsuarioLayout);
         DeskUsuarioLayout.setHorizontalGroup(
             DeskUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addComponent(lblFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         DeskUsuarioLayout.setVerticalGroup(
             DeskUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 541, Short.MAX_VALUE)
+            .addComponent(lblFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         jMenu1.setText("Usuarios");
+        jMenu1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
 
+        mniUserAdd.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        mniUserAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/userAdd.png"))); // NOI18N
         mniUserAdd.setText("Agregar Usuario");
         mniUserAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +79,8 @@ public class frmUsuario extends javax.swing.JFrame {
         });
         jMenu1.add(mniUserAdd);
 
+        mniUserMod.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        mniUserMod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/userMod.png"))); // NOI18N
         mniUserMod.setText("Modificar Usuario");
         mniUserMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +89,8 @@ public class frmUsuario extends javax.swing.JFrame {
         });
         jMenu1.add(mniUserMod);
 
+        mniUserDel.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        mniUserDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/userDelt.png"))); // NOI18N
         mniUserDel.setText("Eliminar Usuario");
         mniUserDel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,8 +101,12 @@ public class frmUsuario extends javax.swing.JFrame {
 
         MnuUsuarios.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nav.png"))); // NOI18N
         jMenu2.setText("Navegar");
+        jMenu2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
 
+        MniRegresar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        MniRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/return.png"))); // NOI18N
         MniRegresar.setText("Regresar");
         MniRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +212,7 @@ public class frmUsuario extends javax.swing.JFrame {
     private javax.swing.JMenuBar MnuUsuarios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JMenuItem mniUserAdd;
     private javax.swing.JMenuItem mniUserDel;
     private javax.swing.JMenuItem mniUserMod;
