@@ -75,9 +75,21 @@ public Producto product;
         ));
         jScrollPane1.setViewportView(table);
 
+        txtidm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidmKeyTyped(evt);
+            }
+        });
+
         jLabel1.setText("Coloque la Id del producto");
 
         jLabel2.setText("Ingrese cantidad a agregar");
+
+        txtNT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNTKeyTyped(evt);
+            }
+        });
 
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -176,12 +188,36 @@ public Producto product;
          
         }
         if(band == 1){
-          }else{
+            JOptionPane.showMessageDialog(this, "Producto agregado con exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }else{
             JOptionPane.showMessageDialog(this, "ID no encontrada", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }  
-        
+        clear();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtidmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidmKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtidmKeyTyped
+
+    private void txtNTKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNTKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtNTKeyTyped
+
+    public void clear(){
+        txtidm.setText("");
+        txtNT.setText("");
+        txtidm.requestFocus();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

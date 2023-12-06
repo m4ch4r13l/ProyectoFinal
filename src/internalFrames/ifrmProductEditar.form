@@ -105,6 +105,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtpre">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtpreKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -112,6 +115,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtstok">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtstokKeyTyped"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -152,6 +158,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtid">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtidKeyTyped"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

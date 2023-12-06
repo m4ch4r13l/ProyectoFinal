@@ -34,37 +34,42 @@ public class dlgVentas extends javax.swing.JDialog {
         if (this.cantPedidos == 1) {
             btnNext.setEnabled(false);
         }
-        lblPedido.setText("Pedido: " + indexPed);
     }
 
     public void ventasList(int idPedido){
-        idPedido--;
-        DefaultTableModel modelo = new DefaultTableModel();
-        String[] cabecera = {"Producto", "Cantidad", "Precio", "Total"};
-        modelo.setColumnIdentifiers(cabecera);
-        
-        String nombreProduct[] = new String[this.ventasList.getIdPedido() + 1];
-        float precioProduct[] = new float[this.ventasList.getIdPedido() + 1];
-        int cantProduct[] = new int[this.ventasList.getIdPedido() + 1];
-        float total;
-        
-        nombreProduct = this.ventasList.ventasList[idPedido].getProductos();
-        precioProduct = this.ventasList.ventasList[idPedido].getPrecios();
-        cantProduct = this.ventasList.ventasList[idPedido].getCantidades();
-        total = this.ventasList.ventasList[idPedido].getTotal();
-        
-        Object[] datos = new Object[5];
-        for (int j = 0; j < this.ventasList.ventasList[idPedido].getCantProducts(); j++) {
-            System.out.println(j);
-            datos [0] = nombreProduct[j];
-            datos [1] = cantProduct[j];
-            datos [2] = "$" + Float.toString(precioProduct[j]);
-            if (j == this.ventasList.ventasList[idPedido].getCantProducts() - 1) {
-                datos [3] = "$" + Float.toString(total);
+        if (this.cantPedidos != 0) {
+            idPedido--;
+            DefaultTableModel modelo = new DefaultTableModel();
+            String[] cabecera = {"Producto", "Cantidad", "Precio", "Total"};
+            modelo.setColumnIdentifiers(cabecera);
+
+            String nombreProduct[] = new String[this.ventasList.getIdPedido() + 1];
+            float precioProduct[] = new float[this.ventasList.getIdPedido() + 1];
+            int cantProduct[] = new int[this.ventasList.getIdPedido() + 1];
+            float total;
+
+            nombreProduct = this.ventasList.ventasList[idPedido].getProductos();
+            precioProduct = this.ventasList.ventasList[idPedido].getPrecios();
+            cantProduct = this.ventasList.ventasList[idPedido].getCantidades();
+            total = this.ventasList.ventasList[idPedido].getTotal();
+
+            Object[] datos = new Object[5];
+            for (int j = 0; j < this.ventasList.ventasList[idPedido].getCantProducts(); j++) {
+                System.out.println(j);
+                datos [0] = nombreProduct[j];
+                datos [1] = cantProduct[j];
+                datos [2] = "$" + Float.toString(precioProduct[j]);
+                if (j == this.ventasList.ventasList[idPedido].getCantProducts() - 1) {
+                    datos [3] = "$" + Float.toString(total);
+                }
+                modelo.addRow(datos);
             }
-            modelo.addRow(datos);
-        }
-        tblVentas.setModel(modelo);
+            tblVentas.setModel(modelo);
+            lblPedido.setText("Pedido: " + indexPed);
+        } else {
+            btnPrew.setEnabled(false);
+            btnNext.setEnabled(false);
+        }   
     }
     
     /**
@@ -91,13 +96,10 @@ public class dlgVentas extends javax.swing.JDialog {
 
         tblVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Producto", "Cantidad", "Precio", "Total"
             }
         ));
         jScrollPane1.setViewportView(tblVentas);
@@ -119,7 +121,7 @@ public class dlgVentas extends javax.swing.JDialog {
 
         lblPedido.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPedido.setText("Pedido 0");
+        lblPedido.setText("Sin pedidos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

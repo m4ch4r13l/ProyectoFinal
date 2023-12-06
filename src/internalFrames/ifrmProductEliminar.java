@@ -74,6 +74,12 @@ public Producto product;
         ));
         jScrollPane1.setViewportView(table);
 
+        txtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIDKeyTyped(evt);
+            }
+        });
+
         jLabel1.setText("Ingrese Id del producto");
 
         bnteliminar.setText("Eliminar");
@@ -149,15 +155,29 @@ public Producto product;
                 }
             }
             if(band ==1){
+                JOptionPane.showMessageDialog(this, "Producto eliminado con exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 JOptionPane.showMessageDialog(this, "ID no encontrada", "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(this, "se cancelo el proceso.", "Proceso cancelado", JOptionPane.INFORMATION_MESSAGE);
         }
-           
+           clear();
     }//GEN-LAST:event_bnteliminarActionPerformed
 
+    private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtIDKeyTyped
+
+    public void clear(){
+        txtID.setText("");
+        txtID.requestFocus();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bnteliminar;

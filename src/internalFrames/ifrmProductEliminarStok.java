@@ -61,6 +61,12 @@ public Producto product;
         setIconifiable(true);
         setTitle("Eliminar Producto");
 
+        txtNT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNTKeyTyped(evt);
+            }
+        });
+
         jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +86,12 @@ public Producto product;
             }
         ));
         jScrollPane1.setViewportView(table);
+
+        txtidm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidmKeyTyped(evt);
+            }
+        });
 
         jLabel1.setText("Coloque la Id del producto");
 
@@ -166,21 +178,41 @@ public Producto product;
                         datosp [3] = product.pro[x].getStock();
                         modp.addRow(datosp);
                     }
-
                 }
-
                 table.setModel(modp);
-
             }
-            if(band == 1){
-            }else{
-                JOptionPane.showMessageDialog(this, "ID no encontrada", "Advertencia", JOptionPane.WARNING_MESSAGE);
-            }
-
         }
-
+        if(band == 1){
+            JOptionPane.showMessageDialog(this, "Producto eliminado con exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "ERROR: ID no encontrada", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+        clear();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtidmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidmKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtidmKeyTyped
+
+    private void txtNTKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNTKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtNTKeyTyped
+
+    public void clear(){
+        txtNT.setText("");
+        txtidm.setText("");
+        txtidm.requestFocus();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

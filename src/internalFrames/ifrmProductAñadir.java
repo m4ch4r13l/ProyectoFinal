@@ -5,6 +5,7 @@
  */
 package internalFrames;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import proyectofinal.Producto;
 import proyectofinal.frmProductos;
@@ -82,11 +83,29 @@ public Producto product;
 
         jLabel1.setText("Nombre del producto");
 
+        txtid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidKeyTyped(evt);
+            }
+        });
+
         jLabel2.setText("ID");
 
         jLabel3.setText("Precio");
 
+        txtpre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtpreKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Cantidad de stok");
+
+        txtstok.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtstokKeyTyped(evt);
+            }
+        });
 
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -174,13 +193,51 @@ public Producto product;
             modp.addRow(datosp);
         }
         table.setModel(modp);
-    }else{ }                  
+        clear();
+    }else{ 
+        JOptionPane.showMessageDialog(this, "Ingrese todos los datos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            
+        }                  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnmostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmostActionPerformed
    
     }//GEN-LAST:event_btnmostActionPerformed
 
+    private void txtidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtidKeyTyped
+
+    private void txtstokKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtstokKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtstokKeyTyped
+
+    private void txtpreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpreKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c) && c != '.') {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtpreKeyTyped
+
+    public void clear(){
+        txtid.setText("");
+        txtnom.setText("");
+        txtpre.setText("");
+        txtstok.setText("");
+        txtid.requestFocus();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnmost;

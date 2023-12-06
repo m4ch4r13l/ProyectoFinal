@@ -99,6 +99,9 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="txtidm">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtidmKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -111,6 +114,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNT">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNTKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>

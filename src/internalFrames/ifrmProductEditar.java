@@ -72,7 +72,19 @@ frmProductos pros;
 
         jLabel3.setText("Precio");
 
+        txtpre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtpreKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Cantidad de stok");
+
+        txtstok.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtstokKeyTyped(evt);
+            }
+        });
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,6 +107,12 @@ frmProductos pros;
         });
 
         jLabel1.setText("Nombre del producto");
+
+        txtid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,12 +216,47 @@ frmProductos pros;
          
         }  
          if(band == 1){
-          }else{
+            JOptionPane.showMessageDialog(this, "Producto modoficado con exito", "Exito", JOptionPane.INFORMATION_MESSAGE);
+         }else{
             JOptionPane.showMessageDialog(this, "ID no encontrada", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }     
-
+         clear();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtidKeyTyped
+
+    private void txtpreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpreKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c) && c != '.') {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtpreKeyTyped
+
+    private void txtstokKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtstokKeyTyped
+        char c = evt.getKeyChar();
+
+        // Acepta solo números y el signo de asterisco
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Elimina el carácter si no es un número o asterisco
+        }
+    }//GEN-LAST:event_txtstokKeyTyped
+
+    public void clear(){
+        txtid.setText("");
+        txtnom.setText("");
+        txtpre.setText("");
+        txtstok.setText("");
+        txtid.requestFocus();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
