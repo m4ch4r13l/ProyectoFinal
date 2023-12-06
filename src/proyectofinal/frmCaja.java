@@ -607,9 +607,9 @@ public class frmCaja extends javax.swing.JFrame {
         
         for (int i = 0; i < this.listIdsProducts.size(); i++) {
             int newStock = this.lisCantProduct.get(i);
-            int stock = this.productList.pro[this.listIdsProducts.get(i) - 1].getStock();
+            int stock = this.productList.pro[this.listIdsProducts.get(i)].getStock();
             newStock = stock - newStock;
-            this.productList.pro[this.listIdsProducts.get(i) - 1].setStock(newStock);
+            this.productList.pro[this.listIdsProducts.get(i)].setStock(newStock);
             System.out.println("Stok: " + newStock);
         }
         
