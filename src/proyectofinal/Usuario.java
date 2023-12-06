@@ -10,7 +10,6 @@ package proyectofinal;
  * @author tikis
  */
 public class Usuario {
-    
     public Usuario users[] = new Usuario[15];
     public int idUsers = 0;
     int registro;
@@ -99,6 +98,7 @@ public class Usuario {
 
                 users = newUsers; // asigna el nuevo arreglo al arreglo original
                 idUsers--;
+                
                 break;
             }
         }

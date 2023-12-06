@@ -387,12 +387,13 @@ public class frmLogin extends javax.swing.JFrame {
         boolean userAcces = false, passAcces = false;
         
         for(int i=0; i<users.idUsers;i++){   
+            int indexUser = i;
             System.out.println("Usuario Id:" + i);
             if(users.users[i].getNombre().equals(user) && users.users[i].isDisponible()){
                 userAcces = true;
                 if (users.users[i].getContrasena().equals(pass)) {
                     passAcces = true;
-                    frmMain f = new frmMain(this, users, users.users[i].getRegistro(), productList);
+                    frmMain f = new frmMain(this, users, indexUser, productList);
                     f.setVisible(true);
                     this.setVisible(false);
                     txtUser.setText("");

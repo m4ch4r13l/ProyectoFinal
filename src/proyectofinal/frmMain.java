@@ -37,7 +37,8 @@ public class frmMain extends javax.swing.JFrame {
         this.loginVentana = loginVentana;
         this.usersList = usersList;
         this.productList = productList;
-        this.actUser = actUser-1;
+        this.actUser = actUser;
+        System.out.println("idUser: " + this.actUser);
         lblTitle.setText("Bienvenido: " + usersList.users[this.actUser].getNombre());
         this.setIconImage(new ImageIcon(getClass().getResource("/img/iconoL.png")).getImage());
     }
