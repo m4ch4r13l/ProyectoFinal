@@ -71,12 +71,7 @@ public class Usuario {
     }
     
     public void add(int registro, String nombre, String contrasena, boolean admin, boolean disponible){
-        users[idUsers] = new Usuario(0,null,null,false,false);
-        users[idUsers].setRegistro(registro);
-        users[idUsers].setNombre(nombre);
-        users[idUsers].setContrasena(contrasena);
-        users[idUsers].setAdmin(admin);
-        users[idUsers].setDisponible(disponible);
+        users[idUsers] = new Usuario(registro, nombre, contrasena, admin, disponible);
         idUsers++;
     }
     

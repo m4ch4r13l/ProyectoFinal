@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import javax.swing.table.DefaultTableModel;
 import datosCaja.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +23,10 @@ public class frmCaja extends javax.swing.JFrame {
     int xMouse, yMouse;
     String productoNombre[];
     int cant[];
+    ArrayList<Integer> lisCantProduct = new ArrayList<>();
+    ArrayList<Integer> listIdsProducts = new ArrayList<>();
     float precio[];
+    int cantProducts = 0;
     float totalPagar = 0.0f;
     
     ColaPedido colaPedido = new ColaPedido();
@@ -30,16 +34,17 @@ public class frmCaja extends javax.swing.JFrame {
     //datos del Main
     frmMain main;
     Producto productList;
+    Ventas ventasList;
     
     public frmCaja() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
     
-    public frmCaja(frmMain main, Producto productList) {
+    public frmCaja(frmMain main, Producto productList, Ventas ventasList) {
         this.main = main;
         this.productList = productList;
-        
+        this.ventasList = ventasList;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -68,6 +73,7 @@ public class frmCaja extends javax.swing.JFrame {
         btnDemo2 = new javax.swing.JPanel();
         btnDemo3 = new javax.swing.JPanel();
         btnVentas = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -341,7 +347,7 @@ public class frmCaja extends javax.swing.JFrame {
         btnDemo3.setLayout(btnDemo3Layout);
         btnDemo3Layout.setHorizontalGroup(
             btnDemo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         btnDemo3Layout.setVerticalGroup(
             btnDemo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,15 +371,23 @@ public class frmCaja extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnVentas.png"))); // NOI18N
+
         javax.swing.GroupLayout btnVentasLayout = new javax.swing.GroupLayout(btnVentas);
         btnVentas.setLayout(btnVentasLayout);
         btnVentasLayout.setHorizontalGroup(
             btnVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(btnVentasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         btnVentasLayout.setVerticalGroup(
             btnVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(btnVentasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         lblTotal.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
@@ -411,13 +425,10 @@ public class frmCaja extends javax.swing.JFrame {
         pnlConsLayout.setHorizontalGroup(
             pnlConsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConsLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlConsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlConsLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlConsLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(pnlConsLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -518,6 +529,7 @@ public class frmCaja extends javax.swing.JFrame {
         } else {
             //calculamos la cantidad del producto segun el formato del txtCodigoProducto.
             int cantProductCalc = calcularCantProductos(txtCodigoProducto.getText());
+            lisCantProduct.add(cantProductCalc);
             int productoCodigo = Integer.parseInt(txtCodigoProducto.getText());
             boolean productEncontrado = false; //Bandera para saber si se encontro el producto
             
@@ -525,6 +537,7 @@ public class frmCaja extends javax.swing.JFrame {
             for (int i = 0; i < productList.cant; i++) {
                 //comparamos el codigo con el codigo de la lista de producto por si coinciden
                 if (productList.pro[i].id == productoCodigo) {
+                    this.listIdsProducts.add(productoCodigo);
                     String producto = productList.pro[i].getNombre(); //extraemos el nombre del producto
                     float precio = productList.pro[i].getPrecio(); //extraemos el precio del producto
                     float pagarCant = 0.0f; //inicializamos el valor de la cantidad a pagar
@@ -542,7 +555,7 @@ public class frmCaja extends javax.swing.JFrame {
                     nombreProduct = this.colaPedido.imprimirNombre();
                     precioProduct = this.colaPedido.imprimirPrecio();
                     cantProduct = this.colaPedido.imprimirCant();
-
+                    
                     Object[] datos = new Object[3];
 
                     for (int j = 0; j < this.colaPedido.cantNodos; j++) {
@@ -555,6 +568,7 @@ public class frmCaja extends javax.swing.JFrame {
                     totalPagar = pagarCant; //pasamos el valor a la variable global totalPagar
                     lblTotal.setText("TOTAL: $"+ Float.toString(totalPagar));
                     tblPedido.setModel(modelo);
+                    this.cantProducts++;
                     break; //interrumpimos el for
                 }
             }
@@ -588,6 +602,38 @@ public class frmCaja extends javax.swing.JFrame {
 
     private void btnPagar1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPagar1MouseReleased
         btnPagar1.setBackground(new Color(255, 223, 48));
+        
+        System.out.println(this.listIdsProducts.get(0));
+        
+        for (int i = 0; i < this.listIdsProducts.size(); i++) {
+            int newStock = this.lisCantProduct.get(i);
+            int stock = this.productList.pro[this.listIdsProducts.get(i) - 1].getStock();
+            newStock = stock - newStock;
+            this.productList.pro[this.listIdsProducts.get(i) - 1].setStock(newStock);
+            System.out.println("Stok: " + newStock);
+        }
+        
+        String nombreProduct[] = new String[this.colaPedido.cantNodos + 1];
+        float precioProduct[] = new float[this.colaPedido.cantNodos + 1];
+        int cantProduct[] = new int[this.colaPedido.cantNodos + 1];
+        
+        nombreProduct = this.colaPedido.imprimirNombre();
+        precioProduct = this.colaPedido.imprimirPrecio();
+        cantProduct = this.colaPedido.imprimirCant();
+        
+        ventasList.add(nombreProduct, cantProduct, precioProduct, totalPagar, this.cantProducts);
+        this.cantProducts = 0;
+        
+        colaPedido.limpiarDatos();
+        colaPedido.RecorrerPila();
+        DefaultTableModel modelo = new DefaultTableModel();
+        String[] cabecera = {"Producto", "Cantidad", "Precio"};
+        modelo.setColumnIdentifiers(cabecera);
+
+        Object[] datos = new Object[3];
+        totalPagar = 0.0f;
+        lblTotal.setText("TOTAL: $"+ Float.toString(totalPagar));
+        tblPedido.setModel(modelo);
     }//GEN-LAST:event_btnPagar1MouseReleased
 
     private void btnDemo1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDemo1MouseEntered
@@ -652,6 +698,8 @@ public class frmCaja extends javax.swing.JFrame {
 
     private void btnVentasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseReleased
         btnVentas.setBackground(new Color(255, 223, 48));
+        dlgVentas ventasWin = new dlgVentas(main, rootPaneCheckingEnabled, ventasList);
+        ventasWin.setVisible(true);
     }//GEN-LAST:event_btnVentasMouseReleased
 
     public int calcularCantProductos(String input){
@@ -732,6 +780,7 @@ public class frmCaja extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblPagar1;
     private javax.swing.JLabel lblTotal;

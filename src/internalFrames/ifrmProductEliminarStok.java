@@ -61,7 +61,7 @@ public Producto product;
         setIconifiable(true);
         setTitle("Eliminar Producto");
 
-        jButton1.setText("Agregar");
+        jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

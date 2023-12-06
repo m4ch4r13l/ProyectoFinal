@@ -12,15 +12,17 @@ public class Ventas {
     public Ventas ventasList[] = new Ventas[100];
     int idPedido = 0;
     String productos[];
+    int cantProducts;
     int cantidades[];
     float precios[];
     float total;
 
-    public Ventas(String[] productos, int[] cantidades, float[] precios, float total) {
+    public Ventas(String[] productos, int[] cantidades, float[] precios, float total, int cantProducts) {
         this.productos = productos;
         this.cantidades = cantidades;
         this.precios = precios;
         this.total = total;
+        this.cantProducts = cantProducts;
     }
     
     public Ventas(){ }
@@ -64,13 +66,17 @@ public class Ventas {
     public void setTotal(float total) {
         this.total = total;
     }
+
+    public int getCantProducts() {
+        return cantProducts;
+    }
+
+    public void setCantProducts(int cantProducts) {
+        this.cantProducts = cantProducts;
+    }
     
-    public void add(String[] productos, int[] cantidades, float[] precios, float total){
-        ventasList[idPedido] = new Ventas(productos, cantidades, precios, total);
-        ventasList[idPedido].setProductos(productos);
-        ventasList[idPedido].setCantidades(cantidades);
-        ventasList[idPedido].setPrecios(precios);
-        ventasList[idPedido].setTotal(total);
+    public void add(String[] productos, int[] cantidades, float[] precios, float total, int cantProducts){
+        ventasList[idPedido] = new Ventas(productos, cantidades, precios, total, cantProducts);
         idPedido++;
     }
     
