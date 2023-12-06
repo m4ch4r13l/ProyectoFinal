@@ -70,8 +70,6 @@ public class Usuario {
         this.disponible = disponible;
     }
     
-    
-    
     public void add(int registro, String nombre, String contrasena, boolean admin, boolean disponible){
         users[idUsers] = new Usuario(0,null,null,false,false);
         users[idUsers].setRegistro(registro);
