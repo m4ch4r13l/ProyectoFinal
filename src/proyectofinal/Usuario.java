@@ -10,7 +10,9 @@ package proyectofinal;
  * @author tikis
  */
 public class Usuario {
+    //Areglod de ususarios
     public Usuario users[] = new Usuario[15];
+    
     public int idUsers = 0;
     int registro;
     String nombre;
@@ -69,17 +71,20 @@ public class Usuario {
         this.disponible = disponible;
     }
     
+    //metodo para agrgar usuarios al arreglo
     public void add(int registro, String nombre, String contrasena, boolean admin, boolean disponible){
         users[idUsers] = new Usuario(registro, nombre, contrasena, admin, disponible);
         idUsers++;
     }
     
+    //Cargar usuarios iniciales
     public void loadUsers(){
         add(idUsers+1,"Eduardo","123",true,true);
         add(idUsers+1,"Machariel","234",true,true);
         add(idUsers+1,"Jesus","456",false,true);
     }
     
+    //Eliminar usuario
     public void deleteUser(int registro) {
         System.out.println("ENTRO A LA FUNCOIN");
         for (int i = 0; i < users.length; i++) {
