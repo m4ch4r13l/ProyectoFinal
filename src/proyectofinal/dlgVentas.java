@@ -27,6 +27,7 @@ public class dlgVentas extends javax.swing.JDialog {
     public dlgVentas(java.awt.Frame parent, boolean modal, Ventas ventasList) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
         indexPed = 1;
         this.ventasList = ventasList;
         this.cantPedidos = this.ventasList.getIdPedido();
@@ -89,6 +90,7 @@ public class dlgVentas extends javax.swing.JDialog {
         lblPedido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Ventas");
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

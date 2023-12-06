@@ -7,6 +7,7 @@ package proyectofinal;
 import datosCaja.Ventas;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +20,7 @@ public class frmMain extends javax.swing.JFrame {
      * Creates new form frmMain
      */
     int xMouse, yMouse;
-    Producto productList = new Producto();
+    Producto productList;
     Usuario usersList;
     Ventas ventasList = new Ventas();
     frmLogin loginVentana;
@@ -28,17 +29,17 @@ public class frmMain extends javax.swing.JFrame {
     public frmMain() {
         initComponents();
         this.setLocationRelativeTo(null);
-        productList.cargarProductos();
     }
     
-    public frmMain(frmLogin loginVentana, Usuario usersList, int actUser) {
+    public frmMain(frmLogin loginVentana, Usuario usersList, int actUser, Producto productList) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.loginVentana = loginVentana;
         this.usersList = usersList;
+        this.productList = productList;
         this.actUser = actUser-1;
         lblTitle.setText("Bienvenido: " + usersList.users[this.actUser].getNombre());
-        productList.cargarProductos();
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/iconoL.png")).getImage());
     }
 
     /**

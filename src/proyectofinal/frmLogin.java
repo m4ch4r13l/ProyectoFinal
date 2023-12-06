@@ -6,6 +6,7 @@ package proyectofinal;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 public class frmLogin extends javax.swing.JFrame {
     private int tam = 20;
     public Usuario users = new Usuario();
+    Producto productList = new Producto();
     /**
      * Creates new form frmLogin
      */
@@ -28,6 +30,8 @@ public class frmLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         users.loadUsers();
+        productList.cargarProductos();
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/iconoL.png")).getImage());
     }
 
     /**
@@ -384,11 +388,11 @@ public class frmLogin extends javax.swing.JFrame {
         
         for(int i=0; i<users.idUsers;i++){   
             System.out.println("Usuario Id:" + i);
-            if(users.users[i].getNombre().equals(user)){
+            if(users.users[i].getNombre().equals(user) && users.users[i].isDisponible()){
                 userAcces = true;
                 if (users.users[i].getContrasena().equals(pass)) {
                     passAcces = true;
-                    frmMain f = new frmMain(this, users, users.users[i].getRegistro());
+                    frmMain f = new frmMain(this, users, users.users[i].getRegistro(), productList);
                     f.setVisible(true);
                     this.setVisible(false);
                     txtUser.setText("");

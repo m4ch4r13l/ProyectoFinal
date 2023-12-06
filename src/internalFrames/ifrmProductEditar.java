@@ -70,8 +70,11 @@ frmProductos pros;
 
         jLabel2.setText("ID");
 
+        txtnom.setEnabled(false);
+
         jLabel3.setText("Precio");
 
+        txtpre.setEnabled(false);
         txtpre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtpreKeyTyped(evt);
@@ -80,6 +83,7 @@ frmProductos pros;
 
         jLabel4.setText("Cantidad de stok");
 
+        txtstok.setEnabled(false);
         txtstok.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtstokKeyTyped(evt);
@@ -108,6 +112,11 @@ frmProductos pros;
 
         jLabel1.setText("Nombre del producto");
 
+        txtid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidActionPerformed(evt);
+            }
+        });
         txtid.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtidKeyTyped(evt);
@@ -250,11 +259,36 @@ frmProductos pros;
         }
     }//GEN-LAST:event_txtstokKeyTyped
 
+    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+        String idm = txtid.getText();
+        int band=0;
+        for(int i=0; i < product.cant;i++){
+            if(product.pro[i].getId().equals(idm)){
+                txtnom.setEnabled(true);
+                txtpre.setEnabled(true);
+                txtstok.setEnabled(true);
+                
+                txtnom.setText(product.pro[i].getNombre());
+                txtpre.setText(Float.toString(product.pro[i].getPrecio()));
+                txtstok.setText(Integer.toString(product.pro[i].getStock()));
+                
+                band = 1;
+            }
+        }  
+         if(band == 1){
+         }else{
+            JOptionPane.showMessageDialog(this, "ID no encontrada", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_txtidActionPerformed
+
     public void clear(){
         txtid.setText("");
         txtnom.setText("");
         txtpre.setText("");
         txtstok.setText("");
+        txtnom.setEnabled(false);
+        txtpre.setEnabled(false);
+        txtstok.setEnabled(false);
         txtid.requestFocus();
     }
 

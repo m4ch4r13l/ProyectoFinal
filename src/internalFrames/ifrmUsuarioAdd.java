@@ -54,6 +54,7 @@ public class ifrmUsuarioAdd extends javax.swing.JInternalFrame {
         btnAgregar = new javax.swing.JButton();
 
         setClosable(true);
+        setTitle("Agregar usuarios");
 
         lblTitle.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

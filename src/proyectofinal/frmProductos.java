@@ -11,6 +11,7 @@ import internalFrames.ifrmProductAñadirStok;
 import internalFrames.ifrmProductEliminar;
 import internalFrames.ifrmProductEliminarStok;
 import internalFrames.ifrmProductEditar;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -25,6 +26,7 @@ public class frmProductos extends javax.swing.JFrame {
     public frmProductos() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/iconoL.png")).getImage());
     }
     
     public frmProductos(frmMain main, Producto po) {
@@ -32,6 +34,7 @@ public class frmProductos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.po = po;
         this.main = main;
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/iconoL.png")).getImage());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,6 +65,7 @@ public class frmProductos extends javax.swing.JFrame {
         jMenuItem6.setText("jMenuItem6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Productos");
         setResizable(false);
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoP.png"))); // NOI18N

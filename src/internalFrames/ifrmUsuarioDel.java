@@ -48,10 +48,11 @@ public class ifrmUsuarioDel extends javax.swing.JInternalFrame {
         txtPass = new javax.swing.JPasswordField();
 
         setClosable(true);
+        setTitle("Eliminar usuarios");
 
         lblTitle.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Modificar usuarios");
+        lblTitle.setText("Eliminar usuarios");
 
         lblUsuario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);

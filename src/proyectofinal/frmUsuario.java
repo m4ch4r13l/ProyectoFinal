@@ -3,6 +3,7 @@ package proyectofinal;
 import internalFrames.ifrmUsuarioAdd;
 import internalFrames.ifrmUsuarioDel;
 import internalFrames.ifrmUsuarioMod;
+import javax.swing.ImageIcon;
 
 
 
@@ -27,6 +28,7 @@ public class frmUsuario extends javax.swing.JFrame {
         this.main = main;
         this.userList = userList;
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/iconoL.png")).getImage());
     }
 
     /**
@@ -49,6 +51,7 @@ public class frmUsuario extends javax.swing.JFrame {
         MniRegresar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Usuarios");
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoP.png"))); // NOI18N
 

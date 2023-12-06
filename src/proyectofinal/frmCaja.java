@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.table.DefaultTableModel;
 import datosCaja.*;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -47,6 +48,7 @@ public class frmCaja extends javax.swing.JFrame {
         this.ventasList = ventasList;
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/iconoL.png")).getImage());
     }
 
     /**
@@ -525,7 +527,7 @@ public class frmCaja extends javax.swing.JFrame {
     private void txtCodigoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoProductoActionPerformed
         if (txtCodigoProducto.getText().isEmpty()) {
             //Detecta si el txtCodigoProducto esta vacio.
-            JOptionPane.showConfirmDialog(this, "Escane un producto.");
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un producto.", "Ingrese un producto", JOptionPane.INFORMATION_MESSAGE);
         } else {
             //calculamos la cantidad del producto segun el formato del txtCodigoProducto.
             int cantProductCalc = calcularCantProductos(txtCodigoProducto.getText());
@@ -536,7 +538,7 @@ public class frmCaja extends javax.swing.JFrame {
             //Recorremos la lista de productos
             for (int i = 0; i < productList.cant; i++) {
                 //comparamos el codigo con el codigo de la lista de producto por si coinciden
-                if (productList.pro[i].id.equals(productoCodigo)) {
+                if (productList.pro[i].id.equals(productoCodigo) && productList.pro[i].stock > 0) {
                     this.listIdsProducts.add(i);
                     String producto = productList.pro[i].getNombre(); //extraemos el nombre del producto
                     float precio = productList.pro[i].getPrecio(); //extraemos el precio del producto
@@ -573,7 +575,7 @@ public class frmCaja extends javax.swing.JFrame {
                 }
             }
             if (!productEncontrado) {
-                JOptionPane.showConfirmDialog(this, "Producto no encontrado.");
+                JOptionPane.showMessageDialog(this, "ERROR: Producto no encontrada", "ERROR", JOptionPane.WARNING_MESSAGE);
             }
             txtCodigoProducto.setText("");
         }

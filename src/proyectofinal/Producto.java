@@ -71,15 +71,15 @@ public class Producto {
     }
     
     public void cargarProductos(){
-        add("1", "Arroz", 70.00f, 100);
-        add("2", "Aceite de oliva", 140.00f, 50);
-        add("3", "Pasta", 250.00f, 80);
-        add("4", "Lentejas 1Kg", 385.00f, 120);
-        add("5", "Galletas", 30.00f, 60);
-        add("6", "Jabón en barra", 24.00f, 150);
-        add("7", "Leche 2L", 50.00f, 90);
-        add("8", "Azúcar 1Kg", 32.00f, 110);
-        add("9", "Sopa enlatada", 68.00f, 70);
-        add("10", "Cepillo de dientes", 40.00f, 100);
+        add("7500478022540", "Emperador Nuz", 18.00f, 100);
+        add("7500810021927", "Mini Barritas Frs", 20.00f, 50);
+        add("7500478024568", "Chokis Brwn", 22.00f, 80);
+        add("7500478025343", "Sabritas Org", 18.00f, 120);
+        add("7501011104099", "Rufles Qso", 19.00f, 60);
+        add("7501030419020", "ChocoRoles Pña", 12.00f, 150);
+        add("7501030419099", "Pingüinos", 12.00f, 90);
+        add("7500810011157", "Polvorones", 18.00f, 110);
+        add("7503001250656", "Alpezzi 500g", 66.00f, 70);
+        add("7500478014569", "Chokis 76g", 20.00f, 100);
     }
 }

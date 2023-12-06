@@ -56,6 +56,7 @@ public class ifrmUsuarioMod extends javax.swing.JInternalFrame {
         rbtDeshabilitado = new javax.swing.JRadioButton();
 
         setClosable(true);
+        setTitle("Modificar usuarios");
 
         lblTitle.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
